@@ -1,0 +1,5 @@
+en:
+  admin:
+    hooks:
+      product_form_right:
+        master_wholesale_price: "Master Wholesale Price:"

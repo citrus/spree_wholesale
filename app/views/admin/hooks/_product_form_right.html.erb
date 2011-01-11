@@ -1,0 +1,65 @@
+<%= f.field_container :price do %>
+  <%= f.label :price, t("master_price")%> <span class="required">*</span><br />
+  <%= f.text_field :price, :value => number_with_precision(@product.price, :precision => 2)  %>
+  <%= f.error_message_on :price %>
+<% end %>
+
+<%= f.field_container :wholesale_price do %>
+  <%= f.label :wholesale_price, t(".master_wholesale_price")%> <span class="required">*</span><br />
+  <%= f.text_field :wholesale_price, :value => number_with_precision(@product.wholesale_price, :precision => 2)  %>
+  <%= f.error_message_on :wholesale_price %>
+<% end %>
+
+<%= f.field_container :cost_price do %>
+  <%= f.label :cost_price, t("cost_price")%><br />
+  <%= f.text_field :cost_price, :value => number_with_precision(@product.cost_price, :precision => 2) %>
+  <%= f.error_message_on :cost_price %>
+<% end %>
+
+<p>
+  <%= f.label :available_on, t("available_on") %><br />
+  <%= f.error_message_on :available_on %>
+  <%= f.spree_date_picker :available_on %>
+</p>
+
+<p>
+  <%= f.label :sku, t("sku") %><br />
+  <%= f.text_field :sku, :size => 16 %>
+</p>
+<% unless @product.has_variants? %>
+  <% if Spree::Config[:track_inventory_levels] %>
+    <p>
+      <%= f.label :on_hand, t("on_hand")%><br />
+      <%= f.text_field :on_hand, :size => 4 %>
+    </p>
+  <% end %>
+  <ul id="shipping-specs">
+    <li>
+      <%= f.label :weight, t("weight")%>
+      <%= f.text_field :weight, :size => 4 %>
+    </li>
+    <li>
+      <%= f.label :height, t("height")%>
+      <%= f.text_field :height, :size => 4 %>
+    </li>
+    <li>
+      <%= f.label :width, t("width")%>
+      <%= f.text_field :width, :size => 4 %>
+    </li>
+    <li>
+      <%= f.label :depth, t("depth")%>
+      <%= f.text_field :depth, :size => 4 %>
+    </li>
+  </ul>
+<% end %>
+<p>
+  <%= f.label :shipping_category_id, t("shipping_categories")%><br />
+  <%= f.collection_select(:shipping_category_id, @shipping_categories, :id, :name, {:include_blank => true}, {"style" => "width:200px"}) %>
+  <%= f.error_message_on :shipping_category %>
+</p>
+
+<p>
+  <%= f.label :tax_category_id, t("tax_category")%><br />
+  <%= f.collection_select(:tax_category_id, @tax_categories, :id, :name, {:include_blank => true}, {"style" => "width:200px"}) %>
+  <%= f.error_message_on :tax_category%>
+</p>
