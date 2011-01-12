@@ -22,7 +22,7 @@ This will assume 66% wholesale mark off.
 
 If you'd like run tests:
 
-    cd your/spree/project/SpreeWholesale
+    cd your/spree/project/spree_wholesale
     rake
 
 
