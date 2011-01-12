@@ -1,7 +1,6 @@
 namespace :spree_wholesale do
 
-  desc "load environment"
-  task :load_environment do
+  def load_environment
     puts "loading environment..."
     require File.join(Rails.root, 'config', 'environment')
   end
@@ -12,42 +11,6 @@ namespace :spree_wholesale do
     Rake::Task['spree_wholesale:install:assets'].invoke
   end
   
-  
-  
-  desc "Creates wholesale role"
-  task :create_role do
-    
-    Rake::Task['spree_wholesale:load_environment'].invoke
-    
-    name = "wholesaler"
-    role = Role.find_by_name(name) rescue nil
-    if role
-      puts "Role exists!"
-    else
-      role = Role.create(:name => name)
-      puts "Role created!"
-    end
-    puts role.inspect
-    
-  end
-  
-  
-  
-  
-  desc "Creates wholesale role"
-  task :assume_wholesale_prices do
-    
-    Rake::Task['spree_wholesale:load_environment'].invoke
-    
-    Variant.all.each do |variant|
-      variant.wholesale_price = variant.price * 0.66
-      variant.save
-    end
-    
-  end
-  
-  
-
   namespace :install do
     desc "Copies all migrations (NOTE: This will be obsolete with Rails 3.1)"
     task :migrations do

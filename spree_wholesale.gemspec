@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email             = 'spencer@citrusme.com'
   s.homepage          = 'http://citrusme.com'
 
-  s.files        = Dir['CHANGELOG', 'README.md', 'LICENSE', 'lib/**/*', 'app/**/*', 'test/**/*']
+  s.files        = Dir['CHANGELOG', 'README.md', 'LICENSE', 'lib/**/*', 'app/**/*']
   s.require_path = 'lib'
   s.requirements << 'none'
 
