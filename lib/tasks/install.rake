@@ -17,6 +17,9 @@ namespace :spree_wholesale do
     
       source = File.expand_path('../../../db/migrate', __FILE__)
       destination = File.join(Rails.root, 'db', 'migrate')
+      
+      FileUtils.mkdir_p(destination)
+      
       migrations = Dir.entries(destination).select{|file| file.match('.rb') }
       
       files = Dir.entries(source).select{|file| file.match('.rb') }
