@@ -63,7 +63,7 @@ To create a demo of SpreeWholesaleExample
     rake db:seed
     rake spree_wholesale:create_role
     
-    or shorthand:
+or shorthand:
     
     rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.0'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.0.beta2.3'" >> Gemfile; rm public/index.html
     rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role
@@ -90,6 +90,10 @@ All in one swoop:
   
     rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.0'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.0.beta2.3'" >> Gemfile; rm public/index.html; bundle install; rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role spree_sample:install db:sample spree_wholesale:assume_wholesale_prices; echo "@import url('wholesale.css');"|cat - public/stylesheets/screen.css > /tmp/out && mv /tmp/out public/stylesheets/screen.css; rails s
     
+
+
+Once the server has loaded add the wholesaler role to your wholesale user(s). Navigate back to the store and check the prices!
+
 
     
 
