@@ -7,7 +7,7 @@ To get SpreeWholesale up and running on your spree store:
 
     cd your/spree/project
     git clone git://github.com/citrus/SpreeWholesale.git
-    echo "\ngem 'spree_wholesale', :path => './spree_wholesale'" << Gemfile
+    echo "\ngem 'spree_wholesale', :path => './spree_wholesale'" >> Gemfile
     rake spree_wholesale:install
     rake db:migrate
     rake spree_wholesale:create_role
