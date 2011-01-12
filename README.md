@@ -65,7 +65,7 @@ To create a demo of SpreeWholesaleExample
     
 or shorthand:
     
-    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.0'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.0.beta2.3'" >> Gemfile; rm public/index.html
+    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.0'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.0.beta3'" >> Gemfile; rm public/index.html
     rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role
   
 If you want sample data:
@@ -88,7 +88,7 @@ Then finish by booting up the rails server:
 
 All in one swoop:
   
-    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.0'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.0.beta2.3'" >> Gemfile; rm public/index.html; bundle install; rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role spree_sample:install db:sample spree_wholesale:assume_wholesale_prices; echo "@import url('wholesale.css');"|cat - public/stylesheets/screen.css > /tmp/out && mv /tmp/out public/stylesheets/screen.css; rails s
+    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.0'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.0.beta3'" >> Gemfile; rm public/index.html; bundle install; rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role spree_sample:install db:sample spree_wholesale:assume_wholesale_prices; echo "@import url('wholesale.css');"|cat - public/stylesheets/screen.css > /tmp/out && mv /tmp/out public/stylesheets/screen.css; rails s
     
 
 
