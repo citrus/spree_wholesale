@@ -15,9 +15,6 @@ module SpreeWholesale
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
         Rails.env.production? ? require(c) : load(c)
       end
-      
-      Spree::Auth::Config.set :registration_step => false
-      
     end
 
     config.to_prepare &method(:activate).to_proc
