@@ -70,22 +70,25 @@ If you want sample data:
 
     rake spree_sample:install db:sample 
     rake spree_wholesale:assume_wholesale_prices
+
+
+
+Link the included stylesheet by adding `@import url('wholesale.css');` to `screen.css`.
+
+    echo "@import url('wholesale.css');"|cat - public/stylesheets/screen.css > /tmp/out && mv /tmp/out public/stylesheets/screen.css
+    
+
     
 Then finish by booting up the rails server:
 
     rails s
 
 
-
 All in one swoop:
   
-    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.0'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.0.beta2.3'" >> Gemfile; rm public/index.html; rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role spree_sample:install db:sample spree_wholesale:assume_wholesale_prices; rails s
+    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.0'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.0.beta2.3'" >> Gemfile; rm public/index.html; rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role spree_sample:install db:sample spree_wholesale:assume_wholesale_prices; echo "@import url('wholesale.css');"|cat - public/stylesheets/screen.css > /tmp/out && mv /tmp/out public/stylesheets/screen.css; rails s
     
 
-Link the included stylesheet by adding `@import url('wholesale.css');` to `screen.css`.
-
-    echo "@import url('wholesale.css');"|cat - public/stylesheets/screen.css > /tmp/out && mv /tmp/out public/stylesheets/screen.css
-    
     
 
 License
