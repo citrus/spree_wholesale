@@ -4,7 +4,12 @@ Spree Wholesale
 
 Currently still under development! Check back soon for more details..
 
-To get SpreeWholesale up and running on your spree store:
+To setup a fresh Spree store follow this instructions:
+
+    https://github.com/railsdog/spree/#readme
+    
+
+To get spree_wholesale up and running on your spree store:
 
     cd your/spree/project
     git clone git://github.com/citrus/spree_wholesale.git
