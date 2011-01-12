@@ -1,0 +1,10 @@
+span.price_msrp,
+span.price_wholesale { 
+  display: block;
+}
+span.price_msrp {
+  color: #c00e0e;
+}
+span.price_wholesale {
+  color: #68962c;
+}

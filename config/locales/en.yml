@@ -1,5 +1,15 @@
 en:
+  wholesale: "Wholesale"
+  wholesale_customer: "Wholesale Customer ID: #%{id}"
+  
   admin:
     hooks:
       product_form_right:
-        master_wholesale_price: "Master Wholesale Price:"
+        master_wholesale_price: "Master Wholesale Price"
+      admin_orders_index_search:
+        show_wholesale_orders: "Show only wholesale orders"
+        
+    variants:
+      form:
+        wholesale_price: "Wholesale Price"
+    

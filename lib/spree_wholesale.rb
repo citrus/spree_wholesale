@@ -6,15 +6,18 @@ module SpreeWholesale
 
     config.autoload_paths += %W(#{config.root}/lib)
 
+    initializer "static assets" do |app|
+      app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{config.root}/public"
+    end
+
+
     def self.activate
-    
-      Product.instance_eval do 
-        delegate_belongs_to :master, :wholesale_price if Variant.table_exists? && Variant.column_names.include?("wholesale_price")
-      end 
-    
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
         Rails.env.production? ? require(c) : load(c)
       end
+      
+      Spree::Auth::Config.set :registration_step => false
+      
     end
 
     config.to_prepare &method(:activate).to_proc

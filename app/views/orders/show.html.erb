@@ -1,0 +1,21 @@
+<div id="order">
+
+  <h1><%= t("order") %> <%= @order.number %></h1>
+  
+  <%= render 'hooks/wholesale_customer_id' if @order.is_wholesale? %>
+  
+  <%= link_to t('back_to_store'), products_path %> 
+
+  <% if params.has_key? :checkout_complete %>
+  	<br/><br/>
+  	<h3><%= t('thank_you_for_your_order') %></h3>         
+  <% else %>
+  	| <%= link_to t('my_account'), user_path(current_user) if current_user%>
+  <% end %>
+  <br/><br/>
+
+  <%= render :partial => 'shared/order_details', :locals => {:order => @order} %>
+
+  <br/>
+  <%= link_to t('back_to_store'), products_path %>
+</div>

@@ -27,10 +27,15 @@ end
 desc "Test Spree Wholesale Extension"
 task :test_extension do
   require File.expand_path('../test/test_helper', __FILE__)
-  puts "do test!"
   
   
   dir = File.expand_path('../test/unit', __FILE__)
+  Dir.entries(dir).select{|file| file.match('_test.rb') }.each do |file|
+    load File.join(dir, file)
+  end
+  
+  
+  dir = File.expand_path('../test/functional', __FILE__)
   Dir.entries(dir).select{|file| file.match('_test.rb') }.each do |file|
     load File.join(dir, file)
   end
