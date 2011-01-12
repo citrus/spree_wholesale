@@ -1,6 +1,6 @@
 Spree Wholesale
+---------------
 
-==============
 
 Currently still under development! Check back soon for more details..
 
@@ -27,8 +27,8 @@ If you'd like run tests: (TO DO: Write some more tests)
 
 
 
-==============
-
+License
+-------
 
 Copyright (c) 2011 Spencer Steffen, released under the New BSD License
 All rights reserved.
