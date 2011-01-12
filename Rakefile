@@ -27,18 +27,28 @@ end
 desc "Test Spree Wholesale Extension"
 task :test_extension do
   require File.expand_path('../test/test_helper', __FILE__)
-  
-  
-  dir = File.expand_path('../test/unit', __FILE__)
-  Dir.entries(dir).select{|file| file.match('_test.rb') }.each do |file|
-    load File.join(dir, file)
+    
+  Dir["test/**/*.rb"].reject{|file| file.match(/test_helper/) != nil }.each do |file|
+    puts "Loading #{file}"
+    load file
   end
   
-  
-  dir = File.expand_path('../test/functional', __FILE__)
-  Dir.entries(dir).select{|file| file.match('_test.rb') }.each do |file|
-    load File.join(dir, file)
-  end
+  #dirs = ['functional', 'unit', 'integrations']
+  #
+  #dirs.each do |dir|
+  #  path = File.expand_path('../test/unit', __FILE__)
+  #  Dir.entries(path).select{|file| file.match('_test.rb') }.each do |file|
+  #    load File.join(dir, file)
+  #  end
+  #  
+  #end
+  #
+  #
+  #
+  #dir = File.expand_path('../test/functional', __FILE__)
+  #Dir.entries(dir).select{|file| file.match('_test.rb') }.each do |file|
+  #  load File.join(dir, file)
+  #end
   
   
 end

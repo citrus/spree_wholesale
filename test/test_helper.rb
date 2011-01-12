@@ -36,3 +36,8 @@ end
 class ActionController::TestCase
   include Devise::TestHelpers
 end
+
+
+class ActionController::IntegrationTest
+  self.fixture_path = File.expand_path('../fixtures', __FILE__)
+end
