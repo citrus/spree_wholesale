@@ -4,12 +4,10 @@ Spree Wholesale
 
 Currently still under development! Check back soon for more details..
 
-To setup a fresh Spree store follow this instructions:
+To setup a fresh Spree store follow [these instructions](https://github.com/railsdog/spree/#readme).
 
-    https://github.com/railsdog/spree/#readme
-    
 
-To get spree_wholesale up and running on your spree store:
+To get spree_wholesale up and running on your spree store, do one of the following:
 
 
 Install from the source:
@@ -31,13 +29,15 @@ If you want to generate sample wholesale prices:
 
     rake spree_wholesale:assume_wholesale_prices
 
-This will assume 66% wholesale mark off.
+This will assume 66% wholesale discount.
 
 
-If you'd like run tests: (TO DO: Write some more tests)
-
+If you'd like run tests, install from the source, the run:
+  
     cd your/spree/project/spree_wholesale
     rake
+
+(TO DO: Write some more tests!)
 
 
 
