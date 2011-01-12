@@ -11,9 +11,18 @@ To setup a fresh Spree store follow this instructions:
 
 To get spree_wholesale up and running on your spree store:
 
+
+Install from the source:
+    
     cd your/spree/project
     git clone git://github.com/citrus/spree_wholesale.git
     echo "gem 'spree_wholesale', :path => './spree_wholesale'" >> Gemfile
+    
+Or install the (beta) gem:
+    
+    gem install spree_wholesale --pre
+    echo "gem 'spree_wholesale', '0.40.0.beta1'" >> Gemfile
+    
     rake spree_wholesale:install
     rake db:migrate
     rake spree_wholesale:create_role
