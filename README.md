@@ -19,7 +19,7 @@ Install from the source:
 Or install the (beta) gem:
     
     gem install spree_wholesale --pre
-    echo "gem 'spree_wholesale', '0.40.0.beta1'" >> Gemfile
+    echo "gem 'spree_wholesale', '0.40.0.beta2'" >> Gemfile
     
     rake spree_wholesale:install
     rake db:migrate

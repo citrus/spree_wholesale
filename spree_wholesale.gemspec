@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_wholesale'
-  s.version     = '0.40.0.beta1'
+  s.version     = '0.40.0.beta2'
   
   s.summary     = 'Add wholesale functionality to spree'
   s.description = 'Spree Wholesale adds a wholesale_price field to variants and allows users with a "wholesaler" role to access these prices.'
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
 
   s.author            = 'Spencer Steffen'
   s.email             = 'spencer@citrusme.com'
-  s.homepage          = 'http://citrusme.com'
+  s.homepage          = 'http://github.com/citrus/spree_wholesale'
 
   s.files        = Dir['CHANGELOG', 'README.md', 'LICENSE', 'lib/**/*', 'app/**/*']
   s.require_path = 'lib'
