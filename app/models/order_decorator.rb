@@ -12,7 +12,6 @@ Order.class_eval do
   end
   
   def to_fullsale!
-    puts "TO FULLSALE"
     self.wholesale = false
     set_line_item_prices(:price)
     update!
@@ -20,7 +19,6 @@ Order.class_eval do
   end
     
   def to_wholesale!
-    puts "TO WHOLESALE"
     self.wholesale = true
     set_line_item_prices(:wholesale_price)
     update!

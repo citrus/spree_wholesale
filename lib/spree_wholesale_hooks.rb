@@ -12,4 +12,8 @@ class SpreeWholesaleHooks < Spree::ThemeSupport::HookListener
   insert_after :admin_orders_index_rows,    'admin/hooks/admin_orders_index_rows'
   insert_after :admin_orders_index_search,  'admin/hooks/admin_orders_index_search'
   
+  insert_after :admin_tabs,  'admin/hooks/wholesale_tab'
+  
+  
+  
 end

@@ -1,14 +1,8 @@
 namespace :spree_wholesale do
 
-  def load_environment
-    puts "loading environment..."
-    require File.join(Rails.root, 'config', 'environment')
-  end
-
   desc "Copies all migrations and assets (NOTE: This will be obsolete with Rails 3.1)"
   task :install do
     Rake::Task['spree_wholesale:install:migrations'].invoke
-    Rake::Task['spree_wholesale:install:assets'].invoke
   end
   
   namespace :install do
@@ -36,14 +30,6 @@ namespace :spree_wholesale do
           puts "#{new_file} copied!"
         end
       end
-    end
-
-    desc "Copies all assets (NOTE: This will be obsolete with Rails 3.1)"
-    task :assets do
-      source = File.join(File.dirname(__FILE__), '..', '..', 'public')
-      destination = File.join(Rails.root, 'public')
-      puts "INFO: Mirroring assets from #{source} to #{destination}"
-      Spree::FileUtilz.mirror_files(source, destination)
     end
   end
 

@@ -1,5 +1,10 @@
 namespace :spree_wholesale do
 
+  def load_environment
+    puts "Loading environment..."
+    require File.join(Rails.root, 'config', 'environment')
+  end
+
   desc "Creates wholesale role"
   task :create_role do
     
@@ -31,5 +36,9 @@ namespace :spree_wholesale do
     end
     
   end
+  
+  
+  
+  
 
 end

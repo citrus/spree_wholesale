@@ -1,0 +1,91 @@
+<fieldset class="leftie">
+  
+  <fieldset>
+    <legend>User</legend>
+    <%= fields_for :user, @user do |uf| %>
+      <%= render "shared/error_messages", :target => @user %>
+      <%= render 'shared/user_form', :f => uf %>
+    <% end %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Company Information</legend>
+    <%= render "shared/error_messages", :target => @wholesaler %>
+    <p>
+      <%= form.label :company %><br/>
+      <%= form.text_field :company, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :buyer_contact %><br/>
+      <%= form.text_field :buyer_contact, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :manager_contact %><br/>
+      <%= form.text_field :manager_contact, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :phone %><br/>
+      <%= form.text_field :phone, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :fax %><br/>
+      <%= form.text_field :fax, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :resale_number %><br/>
+      <%= form.text_field :resale_number, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :taxid %><br/>
+      <%= form.text_field :taxid, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :web_address %><br/>
+      <%= form.text_field :web_address, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :terms %><br/>
+      <%= form.select :terms, Wholesaler.term_options, :class => 'required' %><span class="req">*</span>
+    </p>
+  </fieldset>
+</fieldset>
+
+<fieldset class="rightie">
+
+  
+  
+  <br/>
+  
+  <fieldset>
+    <legend>Billing Address</legend>
+    <%= fields_for :bill_address, @bill_address do |af| %>
+      <%= render "shared/error_messages", :target => @bill_address %>
+      <%= render 'shared/address_form', :form => af, :address => @bill_address, :billing => true %>
+    <% end %>
+  </fieldset>
+  
+  <fieldset id="fields_ship_address">
+    <legend>Shipping Address</legend>
+    <%= fields_for :ship_address, @ship_address do |af| %>
+      <%= render "shared/error_messages", :target => @ship_address %>
+      <%= render 'shared/address_form', :form => af, :address => @ship_address %>
+    <% end %>
+  </fieldset>
+  
+  <p class="action">
+    <%= form.submit t("wholesale_apply"), :class => 'button' %>
+  </p>
+  
+</fieldset>
+
+<br class="clear"/>
+
+<script type="text/javascript">
+//<![CDATA[
+
+	$('#wholesaler_use_billing').change(function(evt) {
+    $('#fields_ship_address').css('display', $(this).is(':checked') ? 'none' : 'block');
+  }).attr('checked', true).change(); 
+   
+//]]>
+</script>

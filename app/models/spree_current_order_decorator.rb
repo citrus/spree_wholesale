@@ -1,16 +1,3 @@
-#Spree::CurrentOrder.module_eval do
-#
-#  def before_save_new_order
-#    
-#    if current_user
-#      @current_order.user ||= current_user
-#      @current_order.wholesale = current_user.has_role?("wholesaler")
-#    end
-#    
-#  end
-#
-#end
-
 module Spree
   module CurrentOrder
 

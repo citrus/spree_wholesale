@@ -1,0 +1,14 @@
+input.required, select.required {
+  color: #222;
+}
+
+.leftie, .rightie {
+  display: block;
+  width: 49%;  
+}
+.leftie {
+  float: left;
+}
+.rightie {
+  float: right;
+}

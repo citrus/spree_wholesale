@@ -1,0 +1,6 @@
+<% user ||= @user %>
+<% if user.has_role?("wholesaler") %>
+  <%= link_to "deny user", reject_wholesale_admin_user_path(user) %>
+<% else %>
+  <%= link_to "approve user", approve_wholesale_admin_user_path(user) %>
+<% end %>

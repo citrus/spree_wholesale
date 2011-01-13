@@ -1,8 +1,34 @@
 en:
+
+  billing_firstname: "Billing First Name"
+  billing_lastname: "Billing Last Name"
+  shipping_firstname: "Shipping First Name"
+  shipping_lastname: "Shipping Last Name"
+  
+  buyer_contact: "Buyer Contact"
+
   wholesale: "Wholesale"
+  wholesaler: "Wholesaler"
+  wholesalers: "Wholesalers"
+  new_wholesaler: "New Wholesaler"
+  editing_wholesaler: "Edit Wholesaler"
+  wholesaler_account: "Wholesaler Account"
+  listing_wholesalers: "Listing Wholesaler"
+  wholesale_login: "Wholesale Login"
+  wholesale_apply: "Apply for a wholesale account"
+  
+  
+  
+  
+  shared:
+    address_form:
+      use_for_shipping: "Use billing address for shipping"
+
   wholesale_customer: "Wholesale Customer ID: #%{id}"
+
   
   admin:
+  
     hooks:
       product_form_right:
         master_wholesale_price: "Master Wholesale Price"
@@ -13,3 +39,21 @@ en:
       form:
         wholesale_price: "Wholesale Price"
     
+    
+    wholesalers:
+      index:
+        company: "Company"
+        buyer_contact: "Buyer contact"
+        manager_contact: "Manager contact"
+        notes: "Notes"
+      form:
+        company: "Company"
+        buyer_contact: "Buyer contact"
+        manager_contact: "Manager contact"
+        phone: "Phone"
+        fax: "Fax"
+        resale_number: "Resale number"
+        taxid: "Taxid"
+        web_address: "Web address"
+        terms: "Terms"
+        notes: "Notes"

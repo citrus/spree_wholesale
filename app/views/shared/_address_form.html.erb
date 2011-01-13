@@ -1,0 +1,77 @@
+<% address ||= @address %>
+<% billing ||= false %>
+
+<p>
+  <%= form.label :firstname, t(billing ? 'billing_firstname' : 'shipping_firstname') %><br/>
+  <%= form.text_field :firstname, :class => 'required' %><span class="req">*</span>
+</p>
+<p>
+  <%= form.label :lastname, t(billing ? 'billing_lastname' : 'shipping_lastname') %><br/>
+  <%= form.text_field :lastname %>
+</p>
+<p>
+  <%= form.label :address1, t(:street_address) %><br/>
+  <%= form.text_field :address1, :class => 'required' %><span class="req">*</span>
+</p>
+<p>
+  <%= form.label :address2, t(:street_address_2) %><br/>
+  <%= form.text_field :address2 %>
+</p>
+<p>
+  <%= form.label :city, t(:city) %><br/>
+  <%= form.text_field :city, :class => 'required' %><span class="req">*</span>
+</p>
+<% if Spree::Config[:address_requires_state] %>
+  <p>
+    <span id="bstate">
+      <% have_states = !address.country.states.empty? %>
+      <%= form.label :state, t(:state) %><br/>
+      <noscript>
+        <%= form.text_field :state_name, :class => 'required' %>
+      </noscript>
+      <% state_elements = [
+         form.collection_select(:state_id, address.country.states,
+                            :id, :name,
+                            {:include_blank => true},
+                            {:class => have_states ? "required" : "hidden",
+                            :disabled => !have_states}) +
+          form.text_field(:state_name,
+                            :class => !have_states ? "required" : "hidden",
+                            :disabled => have_states)
+          ].join.gsub('"', "'").gsub("\n", "")
+      %>
+      <script type="text/javascript" language="javascript" charset="utf-8">
+      // <![CDATA[
+      document.write("<%= raw state_elements %>");
+      // ]]>
+      </script>
+    </span>
+    <span class="req">*</span>
+  </p>
+<% end %>
+<p>
+  <%= form.label :zipcode, t(:zip) %><br/>
+  <%= form.text_field :zipcode, :class => 'required' %><span class="req">*</span>
+</p>
+<p>
+  <%= form.label :country_id, t(:country) %><br/>
+  <span id="bcountry"><%= form.collection_select :country_id, Country.all, :id, :name, {}, {:class => 'required'} %></span>
+  <span class="req">*</span>
+</p>
+<p>
+  <%= form.label :phone, t(:phone) %><br/>
+  <%= form.text_field :phone, :class => 'required' %><span class="req">*</span>
+</p>
+<% if Spree::Config[:alternative_billing_phone] %>
+  <p>
+    <%= form.label :alternative_phone, t(:alternative_phone) %><br/>
+    <%= form.text_field :alternative_phone %>
+  </p>
+<% end %>
+<% if billing %>
+  <p class="field checkbox">
+    <label for="wholesaler_use_billing">
+      <%= check_box_tag 'wholesaler[use_billing]', '1', (!(@wholesaler.bill_address.nil? && @wholesaler.ship_address.nil?) && @wholesaler.bill_address.eql?(@wholesaler.ship_address)) %> <%= t(".use_for_shipping") %>
+    </label>
+  </p>  
+<% end %>

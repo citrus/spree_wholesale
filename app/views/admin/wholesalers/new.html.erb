@@ -1,0 +1,13 @@
+<%= hook :admin_wholesaler_new_form_header do %>
+  <h1><%= t("new_wholesaler") %></h1>
+<% end %>
+
+<%= hook :admin_wholesaler_new_form do %>
+  <%= form_for(:wholesaler, :url => collection_url) do |f| %>
+    <%= render :partial => "form", :locals => { :f => f } %>
+
+    <%= hook :admin_wholesaler_new_form_buttons do %>
+      <%= render :partial => "admin/shared/new_resource_links" %>
+    <% end %>
+  <% end %>
+<% end %>

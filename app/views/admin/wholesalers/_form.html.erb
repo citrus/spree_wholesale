@@ -1,0 +1,129 @@
+<%- locals = {:f => f} %>
+
+<div class="leftie">
+  <%= hook :admin_wholesaler_form_fields, locals do %>
+  
+  <%= render "shared/error_messages", :target => @wholesaler %>
+  
+  <fieldset>
+    <legend>Wholesaler Details:</legend>
+  
+    <%= f.field_container :company do %>
+      <%= f.label :company, t(".company") %><br />
+      <%= f.text_field :company  %>
+      <%= error_message_on :wholesaler, :company %>
+    <% end %>
+  
+    <%= f.field_container :buyer_contact do %>
+      <%= f.label :buyer_contact, t(".buyer_contact") %><br />
+      <%= f.text_field :buyer_contact  %>
+      <%= error_message_on :wholesaler, :buyer_contact %>
+    <% end %>
+  
+    <%= f.field_container :manager_contact do %>
+      <%= f.label :manager_contact, t(".manager_contact") %><br />
+      <%= f.text_field :manager_contact  %>
+      <%= error_message_on :wholesaler, :manager_contact %>
+    <% end %>
+  
+    <%= f.field_container :phone do %>
+      <%= f.label :phone, t(".phone") %><br />
+      <%= f.text_field :phone  %>
+      <%= error_message_on :wholesaler, :phone %>
+    <% end %>
+  
+    <%= f.field_container :fax do %>
+      <%= f.label :fax, t(".fax") %><br />
+      <%= f.text_field :fax  %>
+      <%= error_message_on :wholesaler, :fax %>
+    <% end %>
+  
+    <%= f.field_container :resale_number do %>
+      <%= f.label :resale_number, t(".resale_number") %><br />
+      <%= f.text_field :resale_number  %>
+      <%= error_message_on :wholesaler, :resale_number %>
+    <% end %>
+  
+    <%= f.field_container :taxid do %>
+      <%= f.label :taxid, t(".taxid") %><br />
+      <%= f.text_field :taxid  %>
+      <%= error_message_on :wholesaler, :taxid %>
+    <% end %>
+  
+    <%= f.field_container :web_address do %>
+      <%= f.label :web_address, t(".web_address") %><br />
+      <%= f.text_field :web_address  %>
+      <%= error_message_on :wholesaler, :web_address %>
+    <% end %>
+  
+    <%= f.field_container :terms do %>
+      <%= f.label :terms, t(".terms") %><br />
+      <%= f.text_field :terms  %>
+      <%= error_message_on :wholesaler, :terms %>
+    <% end %>
+  
+    <%= f.field_container :notes do %>
+      <%= f.label :notes, t(".notes") %><br />
+      <%= f.text_area :notes  %>
+      <%= error_message_on :wholesaler, :notes %>
+    <% end %>
+  
+  </fieldset>
+  <% end %>
+  
+  
+  <fieldset>
+    <legend>User Details:</legend>
+    <% if @user.new_record? %>
+      <%= fields_for :user, @user do |uf| %>
+        <%= render "shared/error_messages", :target => @user %>
+        <%= render 'admin/users/form', :f => uf %>
+      <% end %>
+    <% else %>
+    <p>
+      <b>User Id:</b>
+      <%= link_to @user.id, admin_user_path(@user) %>
+      <br/>
+      <%= link_to "view user", admin_user_path(@user) %> / 
+      <%= link_to "edit user", edit_admin_user_path(@user) %> /
+      <%= render "user_options" %>      
+    </p>
+    <% end %>
+  </fieldset>
+  
+  
+</div>
+
+<div class="rightie">
+  
+  <fieldset>
+    <legend>Billing Address Details:</legend>
+    <%= fields_for :bill_address, @bill_address do |af| %>
+      <%= render "shared/error_messages", :target => @bill_address %>
+      <%= render 'shared/address_form', :form => af, :address => @bill_address, :billing => true %>
+    <% end %>
+  </fieldset>
+  
+  
+  <fieldset id="fields_ship_address">
+    <legend>Shipping Address Details:</legend>
+    <%= fields_for :ship_address, @ship_address do |af| %>
+      <%= render "shared/error_messages", :target => @ship_address %>
+      <%= render 'shared/address_form', :form => af, :address => @ship_address %>
+    <% end %>
+  </fieldset>
+  
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+	$('#wholesaler_use_billing').change(function(evt) {
+    $('#fields_ship_address').css('display', $(this).is(':checked') ? 'none' : 'block');
+  }).change();   
+  
+  <% unless @ship_address.new_record? || @bill_address != @ship_address %>
+    $('#wholesaler_use_billing').attr('checked', true);
+  <% end %>  
+   
+//]]>
+</script>
