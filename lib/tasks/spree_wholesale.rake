@@ -31,8 +31,8 @@ namespace :spree_wholesale do
     load_environment
     
     Variant.all.each do |variant|
-      variant.wholesale_price = variant.price * 0.66
-      variant.save
+      price = variant.price * 0.66
+      ActiveRecord::Base.connection.execute("UPDATE variants SET wholesale_price = #{price} WHERE id = #{variant.id}")
     end
     
   end
