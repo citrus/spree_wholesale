@@ -10,6 +10,13 @@ class OrderTest < ActiveSupport::TestCase
     assert order.is_wholesale?
   end
   
+  test "order to_wholesale!" do
+    order = orders(:incomplete)
+    assert !order.is_wholesale?
+    order.to_wholesale!    
+    assert order.is_wholesale?
+  end
+  
   test "order gets wholesale price" do
     order = orders(:incomplete)
     order.line_items = []

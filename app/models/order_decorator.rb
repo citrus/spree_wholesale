@@ -4,8 +4,28 @@ Order.class_eval do
     wholesale == true      
   end
   
+  def set_line_item_prices(use_price=:price)
+    line_items.includes(:variant).each do |line_item|
+      line_item.price = line_item.variant.send(use_price)
+      line_item.save
+    end
+  end
   
-  
+  def to_fullsale!
+    puts "TO FULLSALE"
+    self.wholesale = false
+    set_line_item_prices(:price)
+    update!
+    save
+  end
+    
+  def to_wholesale!
+    puts "TO WHOLESALE"
+    self.wholesale = true
+    set_line_item_prices(:wholesale_price)
+    update!
+    save
+  end
   
   def add_variant(variant, quantity = 1)
     current_item = contains?(variant)
