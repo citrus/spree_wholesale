@@ -32,9 +32,11 @@ If you want to generate sample wholesale prices:
 This will assume 66% wholesale discount.
 
 
-If you'd like run tests, install from the source, then run:
-  
-    cd your/spree/project/spree_wholesale
+If you'd like run tests:
+    
+    git clone git://github.com/citrus/spree_wholesale.git
+    cd spree_wholesale
+    rake test_app (you may have to install dependencies)
     rake
 
 (TO DO: Write some more tests!)
