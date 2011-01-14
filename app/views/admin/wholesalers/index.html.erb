@@ -40,7 +40,8 @@
         <td>
           <%= hook :admin_wholesalers_index_row_actions, locals do %>
             <%= link_to_edit wholesaler %> &nbsp;
-            <%= link_to_delete wholesaler %>
+            <%= link_to_delete wholesaler %> &nbsp;
+            <%= render 'user_options', :wholesaler => wholesaler %>
           <% end %>
         </td>
       </tr>

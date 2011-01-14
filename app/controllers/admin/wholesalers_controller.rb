@@ -14,6 +14,27 @@ class Admin::WholesalersController < Admin::BaseController
   destroy.success.wants.js { render_js_for_destroy }
 
 
+  before_filter :approval_setup, :only => [ :approve, :reject ]
+
+
+  def approve
+    return redirect_to request.referer, :flash => { :error => "Wholesaler is already active." } if @wholesaler.active?
+    @wholesaler.activate!
+    redirect_to request.referer, :flash => { :notice => "Wholesaler was successfully approved." }
+  end
+  
+  def reject
+    return redirect_to request.referer, :flash => { :error => "Wholesaler is already rejected." } unless @wholesaler.active?
+    @wholesaler.deactivate!
+    redirect_to request.referer, :flash => { :notice => "Wholesaler was successfully rejected." }
+  end
+  
+  def approval_setup
+    @wholesaler = Wholesaler.find(params[:id])
+    @role = Role.find_by_name("wholesaler")
+  end
+
+
   private
 
   # Allow different formats of json data to suit different ajax calls

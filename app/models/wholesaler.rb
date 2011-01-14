@@ -17,5 +17,29 @@ class Wholesaler < ActiveRecord::Base
   def self.term_options
     %(Net 10, Net 15, Net 30, COD, Credit Card).split(", ")
   end
+    
+  def activate!
+    get_wholesale_role
+    return false if user.roles.include?(@role)
+    user.roles << @role
+    user.save
+  end
+  
+  def deactivate!
+    get_wholesale_role
+    return false unless user.roles.include?(@role)
+    user.roles.delete(@role)
+    user.save
+  end
+  
+  def active?
+    user.has_role? "wholesaler"
+  end
+  
+  private
+  
+    def get_wholesale_role
+      @role = Role.find_by_name("wholesaler")
+    end
   
 end

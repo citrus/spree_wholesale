@@ -3,11 +3,10 @@ Rails.application.routes.draw do
   resources :wholesalers
   
   namespace(:admin) do
-    resources :wholesalers
-    resources :users do
+    resources :wholesalers do
       member do
-        get :approve_wholesale
-        get :reject_wholesale
+        get :approve
+        get :reject
       end
     end
   end
