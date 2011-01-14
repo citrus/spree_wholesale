@@ -36,7 +36,7 @@ If you'd like run tests:
     
     git clone git://github.com/citrus/spree_wholesale.git
     cd spree_wholesale
-    rake test_app (you may have to install dependencies)
+    rake test_app
     rake
 
 (TO DO: Write some more tests!)
