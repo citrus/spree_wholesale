@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
   s.name         = 'spree_wholesale'
   s.required_ruby_version = '>= 1.8.7'
-  s.version      = '0.40.0.beta4.2'
+  s.version      = '0.40.1.beta'
           
   s.summary      = 'Add wholesale functionality to spree'
   s.description  = 'Spree Wholesale adds a wholesale_price field to variants and allows users with a "wholesaler" role to access these prices.'
@@ -17,6 +17,6 @@ Gem::Specification.new do |s|
 
   s.has_rdoc = false
 
-  s.add_dependency('spree_core', '>= 0.40.0')
-  s.add_dependency('spree_auth', '>= 0.40.0')
+  s.add_dependency('spree_core', '>= 0.40.2')
+  s.add_dependency('spree_auth', '>= 0.40.2')
 end

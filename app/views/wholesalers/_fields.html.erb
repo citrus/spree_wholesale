@@ -10,7 +10,9 @@
 
   <fieldset>
     <legend>Company Information</legend>
+    
     <%= render "shared/error_messages", :target => @wholesaler %>
+    
     <p>
       <%= form.label :company %><br/>
       <%= form.text_field :company, :class => 'required' %><span class="req">*</span>
@@ -51,10 +53,6 @@
 </fieldset>
 
 <fieldset class="rightie">
-
-  
-  
-  <br/>
   
   <fieldset>
     <legend>Billing Address</legend>

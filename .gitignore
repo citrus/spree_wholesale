@@ -5,7 +5,7 @@
 .idea
 .project
 Gemfile
-pkg/**/*
+pkg/*.gem
 spec/**/*
 tmp/**/*
 *.swp
