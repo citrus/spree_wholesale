@@ -18,7 +18,7 @@ Install from the source:
     
 Or install the (beta) gem:
     
-    gem install spree_wholesale --pre
+    gem install spree_wholesale
     echo "gem 'spree_wholesale', '0.40.2'" >> Gemfile
     
     rake spree_wholesale:install
