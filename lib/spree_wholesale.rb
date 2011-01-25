@@ -2,6 +2,9 @@ require 'spree_core'
 require 'spree_wholesale_hooks'
 
 module SpreeWholesale
+
+  VERSION = "0.40.2"
+  
   class Engine < Rails::Engine
 
     config.autoload_paths += %W(#{config.root}/lib)
