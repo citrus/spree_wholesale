@@ -22968,3 +22968,308 @@ Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/
 Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_google_analytics.html.erb (0.5ms)
 Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_footer.html.erb (0.7ms)
 Completed 200 OK in 42ms (Views: 18.7ms | ActiveRecord: 6.4ms)
+  [1m[36mSQL (3.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mMailMethod Load (0.1ms)[0m  [1mSELECT "mail_methods".* FROM "mail_methods" WHERE ("mail_methods"."environment" = 'test') LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mProperty Load (0.1ms)[0m  SELECT "properties".* FROM "properties" WHERE ("properties"."name" = 'brand') LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAppConfiguration Load (0.2ms)[0m  [1mSELECT "configurations".* FROM "configurations" WHERE ("configurations"."type" = 'AppConfiguration') AND ("configurations"."name" = 'Default configuration') LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to SpreeZeroNineZero (20090823005402)
+Migrating to CreateIndexesForInventoryUnits (20090904192342)
+Migrating to AddCountOnHandToVariantsAndProducts (20090923100315)
+Migrating to ChangeTaxonsToNestedSet (20091007134354)
+Migrating to MoveToConfigurableGateways (20091008091614)
+Migrating to ProductGroupsAndScopes (20091012120519)
+Migrating to AddOpenIdAuthenticationTables (20091015110842)
+Migrating to AddOpenidFieldToUsers (20091015153048)
+Migrating to ChangePreferenceValueType (20091016174634)
+Migrating to CreateBillingIntegrations (20091017175558)
+Migrating to ChargeRefactoring (20091021133257)
+Migrating to AddSomeIndexes (20091104151730)
+Migrating to CheckoutStateMachine (20091126190904)
+Migrating to StateForShipments (20091209153045)
+Migrating to MakeStateEventsPolymorphic (20091209202200)
+Migrating to ShipAddressIdForCheckouts (20091211203813)
+Migrating to ShippingMethodIdForCheckouts (20091212161118)
+Migrating to CreditcardLastFourDigits (20091213222815)
+Migrating to PopulateLegacyShipmentState (20091214183826)
+Migrating to AddCostPrice (20100105090147)
+Migrating to ShipmentIdForInventoryUnits (20100105132138)
+Migrating to AddApiKeyToUsers (20100107141738)
+Migrating to CimFieldsForCreditcards (20100111205525)
+Migrating to CreateReturnAuthorizations (20100112151511)
+Migrating to AddReturnAuthorizationToInventoryUnits (20100113090919)
+Migrating to CreateTrackers (20100113203104)
+Migrating to CreditcardIdForCreditcardTxns (20100121160010)
+Migrating to OriginalCreditcardTxnIdForCreditcardTxns (20100121183934)
+Migrating to AddTestModeToBillingIntegration (20100125145351)
+Migrating to CreateProductsProductGroups (20100126103714)
+Migrating to CreatePaymentMethods (20100209025806)
+Migrating to PolymorphicPayments (20100209144531)
+Migrating to ChangePaymentsPaymentMethodToBelongsTo (20100213103131)
+Migrating to AssignCreditcardTxnsToPayment (20100214212536)
+Migrating to StiForTransactions (20100223170312)
+Migrating to DropBillingIntegrations (20100223183812)
+Migrating to DeletedAtForPaymentMethods (20100224153127)
+Migrating to AddAdjustmentsIndex (20100301163454)
+Migrating to FixByPopularity (20100306153445)
+Migrating to AddAltTextToImages (20100317120946)
+Migrating to RenameCouponsToPromotions (20100419190933)
+Migrating to FixExistingCouponCredits (20100419194457)
+Migrating to CreatePromotionRules (20100426100726)
+Migrating to AddDisplayToPaymentMethods (20100427121301)
+Migrating to MatchPolicyForPromotions (20100501084722)
+Migrating to CreatePromotionRulesUsers (20100501095202)
+Migrating to NameForPromotions (20100502163939)
+Migrating to AddAddressesCheckoutsIndexes (20100504142133)
+Migrating to AddIconToTaxons (20100506180619)
+Migrating to AddDescriptionToTaxons (20100506185838)
+Migrating to IndexForShipmentsNumber (20100528155333)
+Migrating to AddIndexOnUsersPersistenceToken (20100528185820)
+Migrating to AddDefaultToTaxCategories (20100605152042)
+Migrating to AddDisplayToShippingMethods (20100624110730)
+Migrating to RenamePaymentMethodDisplay (20100624123336)
+Migrating to RenamePreferencesField (20100624175547)
+Migrating to AddGuestFlag (20100811163637)
+Migrating to DropOrderToken (20100811205836)
+Migrating to PaymentsStateAndAssignedToOrderOnly (20100812162326)
+Migrating to CreateAddressKeysForOrder (20100813023502)
+Migrating to PaymentTotalForOrders (20100813185745)
+Migrating to ShippingMethodIdForOrders (20100816212146)
+Migrating to AddShipmentAndPaymentState (20100817152723)
+Migrating to RefactorAdjustments (20100819170125)
+Migrating to ResponseCodeAndAvsResponseForPayments (20100820135707)
+Migrating to ChangeGuestFlagToAnonymous (20100901171814)
+Migrating to EmailForOrders (20100903203949)
+Migrating to UpdateCalculableTypeForPromotions (20100923095305)
+Migrating to CreateMailMethods (20100923162011)
+Migrating to RenameFrozenToLocked (20100929151905)
+Migrating to MoveSpecialInstructionsToOrders (20101008190536)
+Migrating to CreateLogEntries (20101026184700)
+Migrating to MigrateTransactionsToPaymentState (20101026184714)
+Migrating to DeleteInProgressOrders (20101026184746)
+Migrating to MigrateCheckoutToOrders (20101026184808)
+Migrating to MigrateAdjustments (20101026184833)
+Migrating to RemoveShippedState (20101026184855)
+Migrating to PreventNilPaymentTotal (20101026184916)
+Migrating to PreventNilEmail (20101026184932)
+Migrating to GenerateAnonymousUsers (20101026184959)
+Migrating to UpdateOrderState (20101026185022)
+Migrating to CleanupLegacyTables (20101026192225)
+Migrating to RemoveNumberAndCvvFromCredicard (20101028151745)
+Migrating to RenameColumnsForDevise (20101101185116)
+Migrating to DropAnonymousFieldForUser (20101103212716)
+Migrating to RenamedRmaCancelledState (20101111133551)
+Migrating to FixProblematicIndexNames (20101117031806)
+Migrating to ConvertUserRememberField (20101214150824)
+Migrating to CreateTokenizedPermissions (20101217012656)
+Migrating to TokensForLegacyOrders (20101219201531)
+Migrating to InstallSpreeWholesale (20110207191019)
+  [1m[36mOrder Load (0.6ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE ("orders"."id" = 1069267041) LIMIT 1[0m
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders" WHERE ("orders"."id" = 1069267039) LIMIT 1
+  [1m[36mLineItem Load (0.1ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 1069267039)[0m
+  [1m[35mPayment Load (0.1ms)[0m  SELECT "payments".* FROM "payments" WHERE ("payments".order_id = 1069267039) AND ("payments"."state" = 'completed')
+  [1m[36mLineItem Load (0.1ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 1069267039)[0m
+  [1m[35mAdjustment Load (0.2ms)[0m  SELECT "adjustments".* FROM "adjustments" WHERE ("adjustments".order_id = 1069267039)
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT "shipments".* FROM "shipments" WHERE ("shipments".order_id = 1069267039)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "shipments" WHERE ("shipments".order_id = 1069267039)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "inventory_units" WHERE ("inventory_units".order_id = 1069267039) AND ("inventory_units"."state" = 'backordered')[0m
+  [1m[35mAdjustment Load (0.1ms)[0m  SELECT "adjustments".* FROM "adjustments" WHERE ("adjustments".order_id = 1069267039)
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "orders" SET "payment_state" = 'paid', "shipment_state" = NULL, "item_total" = 0.0, "adjustment_total" = 0.0, "payment_total" = 0.0, "total" = 0.0 WHERE ("orders"."id" = 1069267039)[0m
+  [1m[35mPayment Load (0.1ms)[0m  SELECT "payments".* FROM "payments" WHERE ("payments".order_id = 1069267039) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "orders" SET "wholesale" = 't', "item_total" = 0.0, "total" = 0.0, "payment_state" = 'paid', "updated_at" = '2011-02-07 20:23:12.566637' WHERE ("orders"."id" = 1069267039)[0m
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders" WHERE ("orders"."id" = 1069267039) LIMIT 1
+  [1m[36mLineItem Load (0.1ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 1069267039)[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 651171256) LIMIT 1
+  [1m[36mVariant Load (0.5ms)[0m  [1mSELECT "variants".* FROM "variants" WHERE ("variants".product_id = 651171256 AND (variants.is_master = 't' AND variants.deleted_at IS NULL)) LIMIT 1[0m
+  [1m[35mOrder Load (0.8ms)[0m  SELECT "orders".* FROM "orders" WHERE ("orders"."id" = 1069267039) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "line_items" ("order_id", "variant_id", "quantity", "price", "created_at", "updated_at") VALUES (1069267039, 651171256, 1, 19.99, '2011-02-07 20:23:12.607884', '2011-02-07 20:23:12.607884')[0m
+  [1m[35mPayment Load (0.1ms)[0m  SELECT "payments".* FROM "payments" WHERE ("payments".order_id = 1069267039) AND ("payments"."state" = 'completed')
+  [1m[36mLineItem Load (0.1ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 1069267039)[0m
+  [1m[35mAdjustment Load (0.1ms)[0m  SELECT "adjustments".* FROM "adjustments" WHERE ("adjustments".order_id = 1069267039)
+  [1m[36mPayment Load (0.1ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE ("payments".order_id = 1069267039)[0m
+  [1m[35mShipment Load (0.1ms)[0m  SELECT "shipments".* FROM "shipments" WHERE ("shipments".order_id = 1069267039)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "shipments" WHERE ("shipments".order_id = 1069267039)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "inventory_units" WHERE ("inventory_units".order_id = 1069267039) AND ("inventory_units"."state" = 'backordered')
+  [1m[36mAdjustment Load (0.1ms)[0m  [1mSELECT "adjustments".* FROM "adjustments" WHERE ("adjustments".order_id = 1069267039)[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "orders" SET "payment_state" = 'balance_due', "shipment_state" = NULL, "item_total" = 19.99, "adjustment_total" = 0.0, "payment_total" = 0.0, "total" = 19.99 WHERE ("orders"."id" = 1069267039)
+  [1m[36mPayment Load (0.1ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE ("payments".order_id = 1069267039) AND ("payments"."state" = 'completed')[0m
+  [1m[35mAdjustment Load (0.1ms)[0m  SELECT "adjustments".* FROM "adjustments" WHERE ("adjustments".order_id = 1069267039)
+  [1m[36mPayment Load (0.1ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE ("payments".order_id = 1069267039)[0m
+  [1m[35mShipment Load (0.1ms)[0m  SELECT "shipments".* FROM "shipments" WHERE ("shipments".order_id = 1069267039)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "shipments" WHERE ("shipments".order_id = 1069267039)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "inventory_units" WHERE ("inventory_units".order_id = 1069267039) AND ("inventory_units"."state" = 'backordered')
+  [1m[36mAdjustment Load (0.1ms)[0m  [1mSELECT "adjustments".* FROM "adjustments" WHERE ("adjustments".order_id = 1069267039)[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "orders" SET "payment_state" = 'balance_due', "shipment_state" = NULL, "item_total" = 19.99, "adjustment_total" = 0.0, "payment_total" = 0.0, "total" = 19.99 WHERE ("orders"."id" = 1069267039)
+  [1m[36mOrder Load (0.8ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE ("orders"."id" = 1069267039) LIMIT 1[0m
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 1069267039)
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "orders" SET "wholesale" = 't', "updated_at" = '2011-02-07 20:23:12.631260' WHERE ("orders"."id" = 1069267039)[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 651171256) LIMIT 1
+  [1m[36mVariant Load (0.4ms)[0m  [1mSELECT "variants".* FROM "variants" WHERE ("variants".product_id = 651171256 AND (variants.is_master = 't' AND variants.deleted_at IS NULL)) LIMIT 1[0m
+  [1m[35mOrder Load (0.9ms)[0m  SELECT "orders".* FROM "orders" WHERE ("orders"."id" = 1069267039) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "line_items" ("order_id", "variant_id", "quantity", "price", "created_at", "updated_at") VALUES (1069267039, 651171256, 1, 18.0, '2011-02-07 20:23:12.637537', '2011-02-07 20:23:12.637537')[0m
+  [1m[35mPayment Load (0.1ms)[0m  SELECT "payments".* FROM "payments" WHERE ("payments".order_id = 1069267039) AND ("payments"."state" = 'completed')
+  [1m[36mLineItem Load (0.1ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 1069267039)[0m
+  [1m[35mAdjustment Load (0.1ms)[0m  SELECT "adjustments".* FROM "adjustments" WHERE ("adjustments".order_id = 1069267039)
+  [1m[36mPayment Load (0.1ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE ("payments".order_id = 1069267039)[0m
+  [1m[35mShipment Load (0.1ms)[0m  SELECT "shipments".* FROM "shipments" WHERE ("shipments".order_id = 1069267039)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "shipments" WHERE ("shipments".order_id = 1069267039)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "inventory_units" WHERE ("inventory_units".order_id = 1069267039) AND ("inventory_units"."state" = 'backordered')
+  [1m[36mAdjustment Load (0.1ms)[0m  [1mSELECT "adjustments".* FROM "adjustments" WHERE ("adjustments".order_id = 1069267039)[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "orders" SET "payment_state" = 'balance_due', "shipment_state" = NULL, "item_total" = 18.0, "adjustment_total" = 0.0, "payment_total" = 0.0, "total" = 18.0 WHERE ("orders"."id" = 1069267039)
+  [1m[36mPayment Load (0.1ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE ("payments".order_id = 1069267039) AND ("payments"."state" = 'completed')[0m
+  [1m[35mAdjustment Load (0.1ms)[0m  SELECT "adjustments".* FROM "adjustments" WHERE ("adjustments".order_id = 1069267039)
+  [1m[36mPayment Load (0.1ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE ("payments".order_id = 1069267039)[0m
+  [1m[35mShipment Load (0.1ms)[0m  SELECT "shipments".* FROM "shipments" WHERE ("shipments".order_id = 1069267039)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "shipments" WHERE ("shipments".order_id = 1069267039)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "inventory_units" WHERE ("inventory_units".order_id = 1069267039) AND ("inventory_units"."state" = 'backordered')
+  [1m[36mAdjustment Load (0.1ms)[0m  [1mSELECT "adjustments".* FROM "adjustments" WHERE ("adjustments".order_id = 1069267039)[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "orders" SET "payment_state" = 'balance_due', "shipment_state" = NULL, "item_total" = 18.0, "adjustment_total" = 0.0, "payment_total" = 0.0, "total" = 18.0 WHERE ("orders"."id" = 1069267039)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'spree@example.com') LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: login
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 227792459) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE ("roles"."id" = 400844942) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('spree@example.com')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(DISTINCT "roles"."id") FROM "roles" LEFT OUTER JOIN "roles_users" ON "roles_users"."role_id" = "roles"."id" LEFT OUTER JOIN "users" ON "users"."id" = "roles_users"."user_id" WHERE ("roles"."name" = 'admin')[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "password_salt", "remember_token", "created_at", "updated_at", "persistence_token", "reset_password_token", "perishable_token", "sign_in_count", "failed_attempts", "last_request_at", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "login", "ship_address_id", "bill_address_id", "authentication_token", "unlock_token", "locked_at", "remember_created_at") VALUES ('spree@example.com', 'beec0cc6bc73862ce94b164067d056330bcf1939e79d99224efacb4ded1ccd791503160e7cacddc5c112dfdac6b1bb05f3fdd061b1b58de774382914bea23395', 'HB0FgpjFt5NOEMgRg1m6', NULL, '2011-02-07 20:23:12.804187', '2011-02-07 20:23:12.804187', NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, 'spree@example.com', NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "roles_users" ("role_id", "user_id") VALUES (227792459, 1)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "roles_users" ("role_id", "user_id") VALUES (400844942, 1)
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE ("orders"."id" = 1069267041) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "orders" SET "user_id" = 1, "updated_at" = '2011-02-07 20:23:12.814116' WHERE ("orders"."id" = 1069267041)
+  [1m[36mOrder Load (0.1ms)[0m  [1mSELECT "orders"."id" FROM "orders" WHERE ("orders".user_id = 1) AND ("orders"."id" = 1069267041) LIMIT 1[0m
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"R107687412"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE ("orders"."id" IS NULL) LIMIT 1
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mOrder Load (0.5ms)[0m  SELECT "orders".* FROM "orders" WHERE ("orders"."number" = 'R107687412') LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 )[0m
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE ("orders"."number" = 'R107687412') LIMIT 1[0m
+Rendered /Users/Spencer/RoR/gems/spree_wholesale/app/views/hooks/_wholesale_customer_id.html.erb (0.6ms)
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 1069267041)
+  [1m[36mAdjustment Load (0.1ms)[0m  [1mSELECT "adjustments".* FROM "adjustments" WHERE ("adjustments".order_id = 1069267041)[0m
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_order_details.html.erb (3.6ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_doc_and_xmlns.html.erb (0.3ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_head.html.erb (2.7ms)
+  [1m[35mTaxon Load (0.2ms)[0m  SELECT "taxons".* FROM "taxons" WHERE ("taxons"."parent_id" IS NULL) ORDER BY "lft"
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_search.html.erb (8.6ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_auth-0.40.2/app/views/shared/_login_bar.html.erb (1.1ms)
+  [1m[36mOrder Load (0.1ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE ("orders"."id" IS NULL) LIMIT 1[0m
+Rendered /Users/Spencer/RoR/gems/spree_wholesale/app/views/shared/_store_menu.html.erb (2.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_nav_bar.html.erb (20.7ms)
+  [1m[35mTracker Load (0.1ms)[0m  SELECT "trackers".* FROM "trackers" WHERE ("trackers"."active" = 't') AND ("trackers"."environment" = 'test') LIMIT 1
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_google_analytics.html.erb (4.2ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_footer.html.erb (9.1ms)
+Rendered /Users/Spencer/RoR/gems/spree_wholesale/app/views/orders/show.html.erb within layouts/spree_application (62.9ms)
+Completed 200 OK in 190ms (Views: 72.1ms | ActiveRecord: 43.9ms)
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 651171256) LIMIT 1[0m
+  [1m[35mVariant Load (0.4ms)[0m  SELECT "variants".* FROM "variants" WHERE ("variants".product_id = 651171256 AND (variants.is_master = 't' AND variants.deleted_at IS NULL)) LIMIT 1
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 651171256) LIMIT 1[0m
+  [1m[35mVariant Load (0.4ms)[0m  SELECT "variants".* FROM "variants" WHERE ("variants".product_id = 651171256 AND (variants.is_master = 't' AND variants.deleted_at IS NULL)) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE ("roles"."name" = 'wholesaler') LIMIT 1[0m
+  [1m[35mWholesaler Load (0.4ms)[0m  SELECT "wholesalers".* FROM "wholesalers" WHERE ("wholesalers"."id" = 182160199) LIMIT 1
+WARNING: Can't mass-assign protected attributes: login
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('fullsale@example.com')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(DISTINCT "roles"."id") FROM "roles" LEFT OUTER JOIN "roles_users" ON "roles_users"."role_id" = "roles"."id" LEFT OUTER JOIN "users" ON "users"."id" = "roles_users"."user_id" WHERE ("roles"."name" = 'admin')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "password_salt", "remember_token", "created_at", "updated_at", "persistence_token", "reset_password_token", "perishable_token", "sign_in_count", "failed_attempts", "last_request_at", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "login", "ship_address_id", "bill_address_id", "authentication_token", "unlock_token", "locked_at", "remember_created_at") VALUES ('fullsale@example.com', '0b21f92e1c2f51a500e542f80fb47f71f461c2802ced4cc230ed8b5705510a885f0966fd92995cfedf80abd6a42eabae822999094bb53aff78b26047f1162953', 'UNscIpr4wgP6lX6Ec7GI', NULL, '2011-02-07 20:23:13.243935', '2011-02-07 20:23:13.243935', NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, 'fullsale@example.com', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 227792459) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "roles_users" ("role_id", "user_id") VALUES (227792459, 1)[0m
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE ("addresses"."id" = 740445357) LIMIT 1
+  [1m[36mAddress Load (0.4ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE ("addresses"."id" = 756815652) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "wholesalers" SET "user_id" = 1, "billing_address_id" = 740445357, "shipping_address_id" = 756815652 WHERE ("wholesalers"."id" = 182160199)
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 )[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."name" = 'wholesaler') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "roles_users" ("role_id", "user_id") VALUES (400844942, 1)[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('fullsale@example.com')) AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(DISTINCT "roles"."id") FROM "roles" LEFT OUTER JOIN "roles_users" ON "roles_users"."role_id" = "roles"."id" LEFT OUTER JOIN "users" ON "users"."id" = "roles_users"."user_id" WHERE ("roles"."name" = 'admin')[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."name" = 'wholesaler') LIMIT 1
+  [1m[36mAREL (0.1ms)[0m  [1mDELETE FROM "roles_users" WHERE "roles_users"."user_id" = 1 AND "roles_users"."role_id" IN (400844942)[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('fullsale@example.com')) AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(DISTINCT "roles"."id") FROM "roles" LEFT OUTER JOIN "roles_users" ON "roles_users"."role_id" = "roles"."id" LEFT OUTER JOIN "users" ON "users"."id" = "roles_users"."user_id" WHERE ("roles"."name" = 'admin')[0m
+  [1m[35mWholesaler Load (0.5ms)[0m  SELECT "wholesalers".* FROM "wholesalers" WHERE ("wholesalers"."id" = 182160199) LIMIT 1
+WARNING: Can't mass-assign protected attributes: login
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('fullsale@example.com')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(DISTINCT "roles"."id") FROM "roles" LEFT OUTER JOIN "roles_users" ON "roles_users"."role_id" = "roles"."id" LEFT OUTER JOIN "users" ON "users"."id" = "roles_users"."user_id" WHERE ("roles"."name" = 'admin')
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "password_salt", "remember_token", "created_at", "updated_at", "persistence_token", "reset_password_token", "perishable_token", "sign_in_count", "failed_attempts", "last_request_at", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "login", "ship_address_id", "bill_address_id", "authentication_token", "unlock_token", "locked_at", "remember_created_at") VALUES ('fullsale@example.com', '9bf14d11075f96d68951c5e3450f5f25454f51f54f4249e16cb24a16dad85600b0a4d143fd1f5fcdd5bc3e2a11d87762832b9cd0243a372e0111664602e1d151', 'TxHHMlaVJa9tILg9hmuJ', NULL, '2011-02-07 20:23:13.321641', '2011-02-07 20:23:13.321641', NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, 'fullsale@example.com', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 227792459) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "roles_users" ("role_id", "user_id") VALUES (227792459, 1)[0m
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE ("addresses"."id" = 740445357) LIMIT 1
+  [1m[36mAddress Load (0.3ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE ("addresses"."id" = 756815652) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "wholesalers" SET "user_id" = 1, "billing_address_id" = 740445357, "shipping_address_id" = 756815652 WHERE ("wholesalers"."id" = 182160199)
+  Processing by WholesalersController#index as HTML
+  [1m[36mWholesaler Load (0.6ms)[0m  [1mSELECT "wholesalers".* FROM "wholesalers"[0m
+Rendered /Users/Spencer/RoR/gems/spree_wholesale/app/views/hooks/_wholesale_static_content.html.erb (0.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_auth-0.40.2/app/views/shared/_login.html.erb (2.3ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_doc_and_xmlns.html.erb (0.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_head.html.erb (1.8ms)
+  [1m[35mTaxon Load (0.2ms)[0m  SELECT "taxons".* FROM "taxons" WHERE ("taxons"."parent_id" IS NULL) ORDER BY "lft"
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_search.html.erb (2.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_auth-0.40.2/app/views/shared/_login_bar.html.erb (0.5ms)
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE ("orders"."id" IS NULL) LIMIT 1[0m
+Rendered /Users/Spencer/RoR/gems/spree_wholesale/app/views/shared/_store_menu.html.erb (2.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_nav_bar.html.erb (5.1ms)
+  [1m[35mTracker Load (0.1ms)[0m  SELECT "trackers".* FROM "trackers" WHERE ("trackers"."active" = 't') AND ("trackers"."environment" = 'test') LIMIT 1
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_google_analytics.html.erb (0.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/spree_core-0.40.2/app/views/shared/_footer.html.erb (0.7ms)
+Completed 200 OK in 53ms (Views: 23.7ms | ActiveRecord: 8.0ms)

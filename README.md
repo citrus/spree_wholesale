@@ -2,8 +2,6 @@ Spree Wholesale
 ===============
 
 
-Currently still under development! Check back soon for more details..
-
 To setup a fresh Spree store follow [these instructions](https://github.com/railsdog/spree/#readme).
 
 
