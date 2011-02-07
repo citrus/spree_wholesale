@@ -1,7 +1,6 @@
 if ENV["RAILS_ENV"] != "production"
   require 'spree_core'
   require 'spree_auth'
-  require 'sqlite3'
 end
 
 require 'spree_wholesale_hooks'

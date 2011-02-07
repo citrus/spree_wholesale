@@ -23,6 +23,5 @@ Gem::Specification.new do |s|
   s.add_dependency('spree_auth', '>= 0.30.1')
   
 	s.add_development_dependency('shoulda', '>= 2.11.3')
-  s.add_development_dependency('sqlite3-ruby')
 
 end
