@@ -1,9 +1,9 @@
 ProductsHelper.module_eval do
 
 
-  def wholesaler_signed_in?
-    current_user && current_user.has_role?("wholesaler")
-  end
+  #def wholesaler_signed_in?
+  #  current_user && current_user.has_role?("wholesaler")
+  #end
 
 
   # returns the price of the product to show for display purposes

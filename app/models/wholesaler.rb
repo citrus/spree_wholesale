@@ -33,7 +33,7 @@ class Wholesaler < ActiveRecord::Base
   end
   
   def active?
-    user.has_role? "wholesaler"
+    user && user.has_role?("wholesaler")
   end
   
   private
