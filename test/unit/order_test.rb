@@ -1,23 +1,27 @@
+require 'test_helper'
+
 class OrderTest < ActiveSupport::TestCase
 
-  test "order responds to wholesale" do
+  fixtures :orders, :products
+  
+  should "respond to wholesale" do
     order = Order.new
     assert order.respond_to?(:wholesale), "Order is not wholesale ready. Try running `rake db:migrate` first."
   end
   
-  test "order is_wholesale?" do
+  should "be wholesale" do
     order = orders(:wholesale)
     assert order.is_wholesale?
   end
   
-  test "order to_wholesale!" do
+  should "convert to wholesale" do
     order = orders(:incomplete)
     assert !order.is_wholesale?
     order.to_wholesale!    
     assert order.is_wholesale?
   end
   
-  test "order gets wholesale price" do
+  should "get wholesale price" do
     order = orders(:incomplete)
     order.line_items = []
     order.wholesale = true
@@ -27,7 +31,7 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal WHOLESALE, order.item_total
   end
   
-  test "order gets regular price" do
+  should "get regular price" do
     order = orders(:incomplete)
     order.line_items = []
     order.save

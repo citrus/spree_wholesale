@@ -1,3 +1,5 @@
+require 'test_helper'
+
 class WholesalersControllerTest < ActionController::TestCase
   
   test "should get index" do

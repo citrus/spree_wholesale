@@ -1,55 +1,41 @@
+# Configure Rails Envinronment
 ENV["RAILS_ENV"] = "test"
-require 'rails/test_help'
+
+require File.expand_path("../dummy/config/environment.rb",  __FILE__)
+require "rails/test_help"
+require "shoulda"
+
+ActionMailer::Base.delivery_method    = :test
+ActionMailer::Base.perform_deliveries = true
+ActionMailer::Base.default_url_options[:host] = "test.com"
+
+Rails.backtrace_cleaner.remove_silencers!
+
+# Configure capybara for integration testing
+#require "capybara/rails"
+#Capybara.default_driver   = :rack_test
+#Capybara.default_selector = :css
+
+# Run any available migration
+ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__)
+
+# Load support files
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+
+include HelperMethods
+
+
+if 40 <= Spree.version.split(".")[1].to_i
+  class ActionController::TestCase
+    include Devise::TestHelpers
+  end
+end
+
 
 class ActiveSupport::TestCase
-
   self.fixture_path = File.expand_path('../fixtures', __FILE__)
-
-  PRICE = BigDecimal.new("19.99")
-  WHOLESALE = BigDecimal.new("18.00")
-
-  EMAIL = "spree@example.com"
-  PASSWORD = "spree123"
-
   fixtures :all
-  
-  def fullsale_user
-    return @wholesale_user if @wholesale_user
-    email = "fullsale@example.com"
-    @fullsale_user = User.create(:email => email, 
-      :password => PASSWORD,
-      :password_confirmation => PASSWORD,
-      :email => email,
-      :login => email
-    )
-    @fullsale_user.roles << roles(:user)
-    @fullsale_user
-  end
-  
-  def wholesale_user
-    return @wholesale_user if @wholesale_user
-    @wholesale_user = User.find_by_email("spree@example.com") rescue nil
-    unless @wholesale_user
-      @wholesale_user = User.new(
-        :password => PASSWORD,
-        :password_confirmation => PASSWORD,
-        :email => EMAIL,
-        :login => EMAIL
-      )
-      @wholesale_user.roles << roles(:user) unless @wholesale_user.has_role?("user")
-      @wholesale_user.roles << roles(:wholesaler) unless @wholesale_user.has_role?("wholesaler")
-      @wholesale_user.save
-    end
-    @wholesale_user
-  end
-  
-  
 end
-
-class ActionController::TestCase
-  include Devise::TestHelpers
-end
-
 
 class ActionController::IntegrationTest
   self.fixture_path = File.expand_path('../fixtures', __FILE__)

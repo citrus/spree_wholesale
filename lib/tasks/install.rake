@@ -1,6 +1,6 @@
 namespace :spree_wholesale do
 
-  desc "Copies all migrations and assets (NOTE: This will be obsolete with Rails 3.1)"
+  desc "Copies all migrations (NOTE: This will be obsolete with Rails 3.1)"
   task :install do
     Rake::Task['spree_wholesale:install:migrations'].invoke
   end

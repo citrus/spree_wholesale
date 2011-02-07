@@ -1,5 +1,5 @@
 Spree Wholesale
----------------
+===============
 
 
 Currently still under development! Check back soon for more details..
@@ -19,7 +19,7 @@ Install from the source:
 Or install the (beta) gem:
     
     gem install spree_wholesale
-    echo "gem 'spree_wholesale', '0.40.2'" >> Gemfile
+    echo "gem 'spree_wholesale', '0.40.2.1'" >> Gemfile
     
     rake spree_wholesale:install
     rake db:migrate
@@ -53,7 +53,7 @@ To create a demo of SpreeWholesaleExample
     cd spree_wholesale_example
     
     echo "gem 'spree', '0.40.2'" >> Gemfile
-    echo "gem 'spree_wholesale', '0.40.2'" >> Gemfile
+    echo "gem 'spree_wholesale', '0.40.2.1'" >> Gemfile
     rm public/index.html
     
     bundle install
@@ -67,7 +67,7 @@ To create a demo of SpreeWholesaleExample
     
 or shorthand:
     
-    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.2'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.2'" >> Gemfile; rm public/index.html
+    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.2'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.2.1'" >> Gemfile; rm public/index.html
     rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role
   
 If you want sample data:
@@ -92,7 +92,7 @@ Then finish by booting up the rails server:
 
 All in one swoop:
   
-    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.2'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.2'" >> Gemfile; rm public/index.html; bundle install; rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role spree_sample:install db:sample spree_wholesale:assume_wholesale_prices; echo "@import url('wholesale.css');"|cat - public/stylesheets/screen.css > /tmp/out && mv /tmp/out public/stylesheets/screen.css; rails s
+    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.2'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.2.1'" >> Gemfile; rm public/index.html; bundle install; rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role spree_sample:install db:sample spree_wholesale:assume_wholesale_prices; echo "@import url('wholesale.css');"|cat - public/stylesheets/screen.css > /tmp/out && mv /tmp/out public/stylesheets/screen.css; rails s
     
 
 To do the same as above but install from the source instead, run:

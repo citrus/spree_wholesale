@@ -1,4 +1,18 @@
+require 'test_helper'
+
 class WholesalerTest < ActiveSupport::TestCase
+  
+  fixtures :all
+  
+  should belong_to(:user)
+  should belong_to(:bill_address)
+  should belong_to(:ship_address)
+  
+  should validate_presence_of(:company)
+  should validate_presence_of(:buyer_contact)
+  should validate_presence_of(:manager_contact)
+  should validate_presence_of(:phone)
+  should validate_presence_of(:taxid)
   
   def build_wholesaler(complete=false)
     @wholesaler ||= wholesalers(:new_wholesaler)
@@ -23,7 +37,7 @@ class WholesalerTest < ActiveSupport::TestCase
     assert @wholesaler.save    
   end
       
-  test "wholesaler activation and deactivation" do
+  should "activate and deactivate" do
     build_wholesaler(true)
     assert !@wholesaler.active?
     @wholesaler.activate!

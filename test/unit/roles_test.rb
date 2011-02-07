@@ -1,7 +1,9 @@
+require 'test_helper'
+
 class RolesTest < ActiveSupport::TestCase
     
-  test "wholesaler role exists?" do
-    role = Role.find_by_name("wholesaler")
+  should "find or create wholesale role" do
+    role = Role.find_or_create_by_name("wholesaler")
     assert !role.nil?, "Wholesale role does not exist."
   end
 
