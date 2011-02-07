@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Spencer Steffen"]
   s.email       = ["spencer@citrusme.com"]
   s.homepage    = "http://github.com/citrus/spree_wholesale"
-  s.summary     = %q{Add wholesale functionality to spree}
+  s.summary     = %q{Wholesale accounts for Spree Commerce.}
   s.description = %q{Spree Wholesale adds a wholesale_price field to variants and allows users with a "wholesaler" role to access these prices.}
  
   s.files        = Dir['CHANGELOG', 'README.md', 'LICENSE', 'config/**/*', 'lib/**/*', 'app/**/*', 'db/**/*', 'public/**/*', 'Rakefile']
