@@ -1,7 +1,13 @@
 # Configure Rails Envinronment
 ENV["RAILS_ENV"] = "test"
 
-require File.expand_path("../dummy/config/environment.rb",  __FILE__)
+env = File.expand_path("../dummy/config/environment.rb",  __FILE__)
+unless File.exists?(env)
+  require env
+else
+  raise LoadError, "Please create the dummy app before running tests."
+end
+
 require "rails/test_help"
 require "shoulda"
 
