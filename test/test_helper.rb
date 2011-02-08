@@ -2,7 +2,7 @@
 ENV["RAILS_ENV"] = "test"
 
 env = File.expand_path("../dummy/config/environment.rb",  __FILE__)
-unless File.exists?(env)
+if File.exists?(env)
   require env
 else
   raise LoadError, "Please create the dummy app before running tests."

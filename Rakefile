@@ -7,8 +7,8 @@ rescue LoadError
 end
 
 require 'rake'
-require 'rake/rdoctask'
 require 'rake/testtask'
+#require 'rake/rdoctask'
 
 Bundler::GemHelper.install_tasks
 
@@ -21,10 +21,29 @@ end
 
 task :default => :test
 
-Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'SpreeWholesale'
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README.rdoc')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+
+
+desc "builds dummy app for testing"
+task :test_app do
+
+  #require 'spree_core'
+  #require 'spree_core/generators/spree/test_app_generator'
+  require 'spree_wholesale/generators/test_app_generator'
+  
+    
+  SpreeWholesale::Generators::TestAppGenerator.start
 end
+
+#NV['SPREE_GEM_PATH'] = __FILE__
+#require File.expand_path("../../core/lib/tasks/common", __FILE__)
+
+
+
+
+#Rake::RDocTask.new(:rdoc) do |rdoc|
+#  rdoc.rdoc_dir = 'rdoc'
+#  rdoc.title    = 'SpreeWholesale'
+#  rdoc.options << '--line-numbers' << '--inline-source'
+#  rdoc.rdoc_files.include('README.md')
+#  rdoc.rdoc_files.include('lib/**/*.rb')
+#end
