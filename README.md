@@ -1,43 +1,40 @@
 Spree Wholesale
 ===============
 
+Spree wholesale is a simple wholesale solution for Spree Commerce. Spree wholesale adds a wholesaler login and signup page as well as an admin to approve and deny applicants.
 
-To setup a fresh Spree store follow [these instructions](https://github.com/railsdog/spree/#readme).
-
-
-To get spree_wholesale up and running on your spree store, do one of the following:
-
-
-Install from the source:
-    
-    cd your/spree/project
-    git clone git://github.com/citrus/spree_wholesale.git
-    echo "gem 'spree_wholesale', :path => './spree_wholesale'" >> Gemfile
-    
-Or install the (beta) gem:
+To install Spree Wholesale:
     
     gem install spree_wholesale
-    echo "gem 'spree_wholesale', '0.40.2.1'" >> Gemfile
     
+Or add to your Gemfile:
+    
+    echo "gem 'spree_wholesale', '0.40.2.2'" >> Gemfile
+
+Or install from the source:
+    
+    echo "gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale'" >> Gemfile
+
+Then:
+
     rake spree_wholesale:install
     rake db:migrate
     rake spree_wholesale:create_role
-
-If you want to generate sample wholesale prices:
+    
+      
+If you'd like to generate sample wholesale prices based on a 66% discount:
 
     rake spree_wholesale:assume_wholesale_prices
 
-This will assume 66% wholesale discount.
 
-
-If you'd like run tests:
+And if you'd like run tests:
     
     git clone git://github.com/citrus/spree_wholesale.git
     cd spree_wholesale
     rake test_app
     rake
 
-(TO DO: Write some more tests!)
+(TO DO: Write admin controller tests)
 
 
 Demo
@@ -51,7 +48,7 @@ To create a demo of SpreeWholesaleExample
     cd spree_wholesale_example
     
     echo "gem 'spree', '0.40.2'" >> Gemfile
-    echo "gem 'spree_wholesale', '0.40.2.1'" >> Gemfile
+    echo "gem 'spree_wholesale', '0.40.2.2'" >> Gemfile
     rm public/index.html
     
     bundle install
@@ -65,7 +62,7 @@ To create a demo of SpreeWholesaleExample
     
 or shorthand:
     
-    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.2'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.2.1'" >> Gemfile; rm public/index.html
+    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.2'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.2.2'" >> Gemfile; rm public/index.html
     rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role
   
 If you want sample data:
@@ -87,19 +84,10 @@ Then finish by booting up the rails server:
 
 
 
-
-All in one swoop:
+To create the demo all in one swoop:
   
-    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.2'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.2.1'" >> Gemfile; rm public/index.html; bundle install; rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role spree_sample:install db:sample spree_wholesale:assume_wholesale_prices; echo "@import url('wholesale.css');"|cat - public/stylesheets/screen.css > /tmp/out && mv /tmp/out public/stylesheets/screen.css; rails s
+    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.2'" >> Gemfile; echo "gem 'spree_wholesale', '0.40.2.2'" >> Gemfile; rm public/index.html; bundle install; rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role spree_sample:install db:sample spree_wholesale:assume_wholesale_prices; echo "@import url('wholesale.css');"|cat - public/stylesheets/screen.css > /tmp/out && mv /tmp/out public/stylesheets/screen.css; rails s
     
-
-To do the same as above but install from the source instead, run:
-
-    rails new spree_wholesale_example; cd spree_wholesale_example; echo "gem 'spree', '0.40.2'" >> Gemfile; echo "gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale.git'" >> Gemfile; rm public/index.html; bundle install; rake spree:install spree_wholesale:install db:migrate db:seed spree_wholesale:create_role spree_sample:install db:sample spree_wholesale:assume_wholesale_prices; echo "@import url('wholesale.css');"|cat - public/stylesheets/screen.css > /tmp/out && mv /tmp/out public/stylesheets/screen.css; rails s
-
-
-
-Once the server has loaded add the wholesaler role to your wholesale user(s). Navigate back to the store and check the prices!
 
 
     
