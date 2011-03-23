@@ -15,10 +15,10 @@
   <thead>
   <tr>
     <%= hook :admin_wholesalers_index_headers do %>
-      <th><%= order @search, :by => :company, :as => t("wholesaler") %></th>
-      <th><%= order @search, :by => :buyer_contact, :as => t("buyer_contact") %></th>
-      <th><%= order @search, :by => :email, :as => t("email") %></th>
-      <th><%= order @search, :by => :phone, :as => t("phone") %></th>
+      <th><%= sort_link @search, :company, t('wholesaler') %></th>
+      <th><%= sort_link @search, :buyer_contact, t('buyer_contact') %></th>
+      <th><%= sort_link @search, :user_email, t('email') %></th>
+      <th><%= sort_link @search, :phone, t('phone') %></th>
       <th><%= t('active') %></th>
       <th>
         <%= hook :admin_wholesalers_index_header_actions %>
@@ -52,12 +52,15 @@
 <%= will_paginate(:previous_label => "&#171; #{t('previous')}", :next_label => "#{t('next')} &#187;") %>
 
 
+
 <% content_for :sidebar do %>
-  <div class="box">
-    <h3><%= t(:search) %></h3>
-    <%= form_for @search do |f| %>
-      <%- locals = {:f => f} %>
-      <%= hook :admin_wholesalers_index_search, locals do %>
+<div class="box">
+  <h3><%= t('search') %></h3>
+
+  <% @wholesaler = Wholesaler.metasearch %>
+  <%= form_for [:admin, @wholesaler] do |f| %>
+    <%- locals = {:f => f} %>
+    <%= hook :admin_wholesalers_index_search, locals do %>
         <p>
           <%= t(".company") %><br />
           <%= f.text_field :company_contains, :size=>18 %>
