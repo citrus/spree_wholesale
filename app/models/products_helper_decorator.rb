@@ -1,11 +1,5 @@
 ProductsHelper.module_eval do
 
-
-  #def wholesaler_signed_in?
-  #  current_user && current_user.has_role?("wholesaler")
-  #end
-
-
   # returns the price of the product to show for display purposes
   def product_price(product_or_variant, options={})
     options.assert_valid_keys(:format_as_currency, :show_vat_text, :hide_labels, :quantity)

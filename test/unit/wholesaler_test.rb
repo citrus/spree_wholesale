@@ -29,7 +29,7 @@ class WholesalerTest < ActiveSupport::TestCase
     wholesaler
   end
   
-  test "creates valid wholesaler" do
+  should "create valid wholesaler" do
     build_wholesaler
     assert !@wholesaler.valid?
     add_parts

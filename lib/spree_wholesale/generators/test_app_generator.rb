@@ -13,7 +13,7 @@ module SpreeWholesale
       source_paths << File.expand_path("../../templates", __FILE__)
       
       def install_spree_core
-        inside "test_app" do
+        inside "test/#{test_app}" do
           run 'rake spree_core:install'
           run 'rake spree_auth:install'
           run 'rake spree_wholesale:install'
@@ -53,14 +53,6 @@ module SpreeWholesale
       def migrate_db  
         run_migrations
       end
-      
-      #def run_migrations
-      #  inside "" do
-      #    silence_stream(STDOUT) {
-      #      run "rake db:migrate db:seed RAILS_ENV=test"
-      #    }
-      #  end
-      #end
     
       protected
       

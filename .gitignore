@@ -6,6 +6,6 @@
 .project
 Gemfile
 pkg/*.gem
-test/dummy/**/*
+test/dummy
 tmp/**/*
 *.swp
