@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    spree_wholesale (0.40.2.2)
+    spree_wholesale (0.50.0.0)
       spree_auth (>= 0.30.1)
       spree_core (>= 0.30.1)
 

@@ -8,17 +8,16 @@ Installation
 ------------
 
 
-To install Spree Wholesale to your existing Spree store, add the following to your `Gemfile`
-    
-    gem 'spree_wholesale', '0.50.0.0'
-    
+If you're on Spree 0.50.0 you'll have to install Spree Wholesale from the source since I haven't released it yet. Just add this to your Gemfile:
 
-Or if you'd rather track the source:
-    
     gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale'
 
+Otherwise just use the last stable release:
     
-Then:
+    gem 'spree_wholesale', '0.40.2.2'
+    
+    
+Then install the necessary migrations, db:migrate, and create the wholesale role:
 
     rake spree_wholesale:install db:migrate spree_wholesale:create_role
     
