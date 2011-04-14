@@ -7,6 +7,8 @@ class SpreeWholesaleHooks < Spree::ThemeSupport::HookListener
   
   insert_before :inside_cart_form, 'hooks/wholesale_customer_id'
   
+  insert_after :admin_order_show_buttons, 'hooks/wholesale_customer_id'
+  
   insert_after :admin_orders_index_headers, 'admin/hooks/admin_orders_index_headers'
   insert_after :admin_orders_index_rows,    'admin/hooks/admin_orders_index_rows'
   insert_after :admin_orders_index_search,  'admin/hooks/admin_orders_index_search'
