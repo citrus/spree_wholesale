@@ -17,13 +17,12 @@ Gem::Specification.new do |s|
   
   s.require_paths = ["lib"]
 
-  s.has_rdoc = false
-
   s.add_dependency('spree_core', '>= 0.30.1')
   s.add_dependency('spree_auth', '>= 0.30.1')
   
-  s.add_development_dependency('spree', '>= 0.40.2')
-	s.add_development_dependency('shoulda', '>= 2.11.3')
+  s.add_development_dependency('spree',        '>= 0.40.2')
+	s.add_development_dependency('shoulda',      '>= 2.11.3')
 	s.add_development_dependency('sqlite3-ruby', '>= 1.3.2')
+	s.add_development_dependency('spork',        '>= 0.8.4')
 
 end

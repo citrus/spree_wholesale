@@ -1,7 +1,15 @@
 Order.class_eval do 
 
+  def wholesale
+    read_attribute(:wholesale) && !wholesaler.nil?
+  end
+
+  def wholesaler
+    user && user.wholesaler
+  end
+
   def is_wholesale?
-    wholesale == true      
+    wholesale
   end
   
   def set_line_item_prices(use_price=:price)

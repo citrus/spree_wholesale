@@ -1,4 +1,5 @@
 if ENV["RAILS_ENV"] != "production"
+  require 'spree'
   require 'spree_core'
   require 'spree_auth'
 end

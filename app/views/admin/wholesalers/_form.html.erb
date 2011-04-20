@@ -58,7 +58,7 @@
   
     <%= f.field_container :terms do %>
       <%= f.label :terms, t(".terms") %><br />
-      <%= f.text_field :terms  %>
+      <%= f.select :terms, Wholesaler.term_options  %>
       <%= error_message_on :wholesaler, :terms %>
     <% end %>
   
