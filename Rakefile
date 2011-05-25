@@ -20,10 +20,3 @@ Rake::TestTask.new(:test) do |t|
 end
 
 task :default => :test
-
-
-desc "Builds dummy app for testing"
-task :test_app do
-  require 'spree_wholesale/generators/test_app_generator'
-  SpreeWholesale::Generators::TestAppGenerator.start
-end
