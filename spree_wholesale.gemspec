@@ -20,9 +20,11 @@ Gem::Specification.new do |s|
   s.add_dependency('spree_core', '>= 0.30.1')
   s.add_dependency('spree_auth', '>= 0.30.1')
   
-  s.add_development_dependency('spree',        '>= 0.40.2')
-	s.add_development_dependency('shoulda',      '>= 2.11.3')
-	s.add_development_dependency('sqlite3-ruby', '>= 1.3.2')
-	s.add_development_dependency('spork',        '>= 0.8.4')
+  s.add_development_dependency('spree_sample',   '>= 0.30.1')
+  s.add_development_dependency('shoulda',        '>= 2.11.3')
+	s.add_development_dependency('spork',          '>= 0.9.0.rc5')
+  s.add_development_dependency('spork-testunit', '>= 0.0.5')
+	s.add_development_dependency('sqlite3',        '>= 1.3.3')
+  s.add_development_dependency('faker',          '>= 0.9.5')
 
 end
