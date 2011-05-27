@@ -1,8 +1,10 @@
-require 'test_helper'
+require_relative '../test_helper'
 
 class WholesalerTest < ActiveSupport::TestCase
   
-  fixtures :all
+  def setup
+    # nada
+  end
   
   should belong_to(:user)
   should belong_to(:bill_address)
@@ -14,36 +16,52 @@ class WholesalerTest < ActiveSupport::TestCase
   should validate_presence_of(:phone)
   should validate_presence_of(:taxid)
   
-  def build_wholesaler(complete=false)
-    @wholesaler ||= wholesalers(:new_wholesaler)
-    return @wholesaler unless complete
-    @wholesaler = add_parts(@wholesaler)
-    @wholesaler.save
-    @wholesaler
+  context "with a new wholesaler" do
+  
+    setup do
+      @wholesaler = Factory.build(:wholesaler, :user => nil, :ship_address => nil, :bill_address => nil)
+    end
+    
+    should "create valid wholesaler" do
+      assert !@wholesaler.valid?
+      @wholesaler.user = Factory.create(:wholesale_user)
+      @wholesaler.bill_address = @wholesaler.ship_address = Factory.create(:address)
+      assert @wholesaler.valid?
+      assert @wholesaler.save   
+    end
+    
   end
   
-  def add_parts(wholesaler=@wholesaler)
-    wholesaler.user = fullsale_user
-    wholesaler.bill_address = addresses(:billing)
-    wholesaler.ship_address = addresses(:shipping)
-    wholesaler
+  context "with an existing wholesaler" do
+  
+    setup do    
+      @wholesaler = Factory.create(:wholesaler, 
+        :user         => Factory.create(:wholesale_user),
+        :bill_address => Factory.create(:address),
+        :ship_address => Factory.create(:address)
+      )
+    end
+    
+    should "activate" do 
+      assert !@wholesaler.active?
+      @wholesaler.activate!
+      assert @wholesaler.active?
+    end
+    
+    should "deactivate" do 
+      @wholesaler.activate!
+      assert @wholesaler.active?
+      @wholesaler.deactivate!
+      assert !@wholesaler.active?
+    end
+    
   end
   
-  should "create valid wholesaler" do
-    build_wholesaler
-    assert !@wholesaler.valid?
-    add_parts
-    assert @wholesaler.valid?
-    assert @wholesaler.save    
-  end
-      
-  should "activate and deactivate" do
-    build_wholesaler(true)
-    assert !@wholesaler.active?
-    @wholesaler.activate!
-    assert @wholesaler.active?
-    @wholesaler.deactivate!
-    assert !@wholesaler.active?
-  end
+    
+  #should "activate and deactivate" do
+  #  
+  #  @wholesaler.deactivate!
+  #  assert !@wholesaler.active?
+  #end
   
 end

@@ -3,7 +3,7 @@
 <% end %>
 
 <%= hook :admin_wholesaler_new_form do %>
-  <%= form_for(:wholesaler, :url => collection_url) do |f| %>
+  <%= form_for [:admin, @wholesaler], :html => { :class => "wholesaler-form" } do |f| %>
     <%= render :partial => "form", :locals => { :f => f } %>
 
     <%= hook :admin_wholesaler_new_form_buttons do %>

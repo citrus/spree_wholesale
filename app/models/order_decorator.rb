@@ -27,6 +27,12 @@ Order.class_eval do
   end
     
   def to_wholesale!
+    
+    puts "user.wholesaler"
+    puts user.wholesaler
+    
+    
+    return false unless user.wholesaler.present?
     self.wholesale = true
     set_line_item_prices(:wholesale_price)
     update!

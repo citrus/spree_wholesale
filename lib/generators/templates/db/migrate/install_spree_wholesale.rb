@@ -17,6 +17,7 @@ class InstallSpreeWholesale < ActiveRecord::Migration
       t.string :terms
       t.string :alternate_email
       t.text   :notes
+      t.timestamps
     end
   
     add_index :wholesalers, [:billing_address_id, :shipping_address_id]

@@ -3,7 +3,7 @@
 <% end %>
 
 <%= hook :admin_wholesaler_edit_form do %>
-  <%= form_for(:wholesaler, :url => object_url, :html => { :method => :put }) do |f| %>
+  <%= form_for [:admin, @wholesaler], :html => { :class => "wholesaler-form" } do |f| %>
     <%= render :partial => "form", :locals => { :f => f } %>
 
     <%= hook :admin_wholesaler_edit_form_buttons do %>

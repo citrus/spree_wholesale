@@ -5,9 +5,9 @@ module SpreeWholesale
     replace :cart_item_total,                 'hooks/cart_item_total'
     replace :admin_product_form_right,        'admin/hooks/product_form_right'
     
+    insert_before :account_my_orders,         'hooks/wholesale_customer'
     insert_before :inside_cart_form,          'hooks/wholesale_customer_id'
     insert_before :checkout_payment_step,     'hooks/wholesale_payment_options'
-    insert_before :account_my_orders,         'hooks/wholesale_customer_id'
     insert_after  :admin_order_show_buttons,  'hooks/wholesale_customer_id'
     
     

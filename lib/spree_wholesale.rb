@@ -1,5 +1,6 @@
 require 'spree_core'
 require 'spree_auth'
+require 'spree_sample' unless Rails.env == 'production'
 
 require 'spree_wholesale/custom_hooks'
 require 'spree_wholesale/wholesaler_controller'
@@ -25,6 +26,9 @@ module SpreeWholesale
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator.rb")) do |c|
         _load(c)
       end
+      
+      _load File.expand_path("../spree_wholesale/wholesaler_controller.rb", __FILE__)
+      
     end
 
     config.to_prepare &method(:activate).to_proc

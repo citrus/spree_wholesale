@@ -1,0 +1,5 @@
+<% if @user.wholesaler? %>
+  <h1>Wholesaler</h1>
+  <h4 class="wholesale-customer-id"><%= t('wholesale_customer', { :id => @user.id }) %></h4>
+  <h4 class="wholesale-customer-id"><%= t('wholesale_customer_since', { :time => @user.wholesaler.created_at }) %></h4>
+<% end %>

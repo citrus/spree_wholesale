@@ -1,3 +1,10 @@
+.wholesaler-form input[type=text],
+.wholesaler-form select {
+  font-size: 1.1em;
+  font-weight: normal;
+  padding: 2px 3px;
+}
+
 input.required, select.required {
   color: #222;
 }
@@ -12,3 +19,4 @@ input.required, select.required {
 .rightie {
   float: right;
 }
+

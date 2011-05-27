@@ -1,5 +1,10 @@
 en:
 
+  successfully_created: %{resource} was successfully created.
+  successfully_updated: %{resource} was successfully updated.
+  successfully_removed: %{resource} was successfully removed.
+
+
   billing_firstname: "Billing First Name"
   billing_lastname: "Billing Last Name"
   shipping_firstname: "Shipping First Name"
@@ -27,8 +32,12 @@ en:
   wholesale_customer: "Wholesale Customer ID: #%{id}"
 
   
-  admin:
+  wholesaler:
+    parts_error_message: There are errors with the user or addresses
   
+  
+  admin:
+    
     hooks:
       product_form_right:
         master_wholesale_price: "Master Wholesale Price"
@@ -41,6 +50,10 @@ en:
     
     
     wholesalers:
+      
+      success: Wholesale account was successfully created
+      failed: Wholesale account could not be created
+    
       index:
         company: "Company"
         buyer_contact: "Buyer contact"

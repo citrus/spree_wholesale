@@ -1,24 +1,10 @@
+require 'generators/base'
+
 module SpreeWholesale
   module Generators
-    class InstallGenerator < Rails::Generators::Base
+    class InstallGenerator < SpreeWholesale::Generators::Base
       
-      include Rails::Generators::Migration      
-
-      def self.count!
-        @count ||= 0
-        (@count += 1) * 3
-      end
-
-      def self.next_migration_number(path)
-        @time ||= Time.new.utc
-        if ActiveRecord::Base.timestamped_migrations
-          (@time + self.count!).strftime("%Y%m%d%H%M%S")
-        else
-          "%.3d" % (current_migration_number(dirname) + 1)
-        end
-      end
-      
-      desc "Installs required migrations for spree_essentials"
+      desc "Installs required migrations for spree_wholesale"
       source_root File.expand_path("../../templates", __FILE__)
       
       def copy_migrations
