@@ -15,7 +15,6 @@ Spork.prefork do
   require 'shoulda'
   require 'factory_girl'
   require 'capybara/rails'
-  
 
   ActionMailer::Base.delivery_method    = :test
   ActionMailer::Base.perform_deliveries = true
@@ -24,8 +23,8 @@ Spork.prefork do
   Rails.backtrace_cleaner.remove_silencers!
 
   # Configure capybara for integration testing
-  Capybara.default_driver   = :selenium
-  Capybara.default_selector = :css
+  Capybara.default_driver    = :selenium
+  Capybara.default_selector  = :css
   
   # Run any available migration
   ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__)

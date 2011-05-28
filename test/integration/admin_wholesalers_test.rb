@@ -89,14 +89,12 @@ class AdminWholesalersTest < ActiveSupport::IntegrationCase
     
     should "update wholesaler, user and addresses" do
       visit edit_admin_wholesaler_path(@wholesaler)
-      
       within ".wholesaler-details" do
         @labels.each_with_index do |label, index|
         	fill_in label, :with => @values[index].reverse      
         end
         select 'Credit Card', :from => 'Terms'
       end
-            
       within ".billing-details" do
         @address_labels.each_with_index do |label, index|
           fill_in label, :with => @address_values[index].reverse
@@ -105,7 +103,6 @@ class AdminWholesalersTest < ActiveSupport::IntegrationCase
         select 'United States', :from => 'Country'
         uncheck "Use billing address for shipping"
       end
-      
       within ".shipping-details" do
         @address_labels.each_with_index do |label, index|
           fill_in label.sub('Billing', 'Shipping'), :with => @address_values[index]
@@ -113,14 +110,37 @@ class AdminWholesalersTest < ActiveSupport::IntegrationCase
         select 'California', :from => 'State'
         select 'United States', :from => 'Country'
       end
-      
       click_button "Update"
-      
       assert_flash(:notice, "Successfully updated!")
       assert_seen "ylliB notrelliB", :within => ".rightie .adr:first"
-      
     end
-        
+    
+    
+    # no worky without JS :( 
+    
+    #should "update switch to a foreign address" do
+    #  visit edit_admin_wholesaler_path(@wholesaler)
+    #  
+    #  sleep 3
+    #  
+    #  within ".billing-details" do
+    #    uncheck "Use billing address for shipping"
+    #  end
+    #  
+    #  sleep 3
+    #  
+    #  within ".shipping-details" do
+    #    select 'Switzerland', :from => 'Country'
+    #    
+    #    sleep 5
+    #    
+    #    
+    #  end
+    #  
+    #  
+    #end 
+    
+    
   end
   
 end

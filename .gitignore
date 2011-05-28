@@ -4,7 +4,7 @@
 .DS_Store
 .idea
 .project
-Gemfile
+Gemfile.lock
 pkg/*.gem
 test/dummy
 tmp/**/*
