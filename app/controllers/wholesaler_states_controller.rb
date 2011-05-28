@@ -1,4 +1,4 @@
-class WholesalerStatesController < Admin::BaseController
+class WholesalerStatesController < Spree::BaseController
 
   def index
     if params[:country_id]
