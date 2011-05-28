@@ -21,6 +21,7 @@ en:
   listing_wholesalers: "Listing Wholesaler"
   wholesale_login: "Wholesale Login"
   wholesale_apply: "Apply for a wholesale account"
+  wholesale_signup: Wholesale Signup
   
   
   
@@ -33,6 +34,8 @@ en:
 
   
   wholesaler:
+    signup_success: Thank you for your interest in becoming a wholesaler! We'll be in touch shortly.
+    signup_failed: Wholesale account could not be created!
     parts_error_message: There are errors with the user or addresses
   
   

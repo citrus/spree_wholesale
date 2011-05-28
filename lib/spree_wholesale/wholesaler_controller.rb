@@ -22,12 +22,12 @@ module SpreeWholesale
       # Overwrite point
       
       def after_wholesaler_create
-        flash[:notice] = "Thank you for your interest in becoming a wholesaler! We'll be in touch shortly."
+        flash[:notice] = I18n.t('wholesaler.signup_success')
         redirect_to wholesalers_path
       end
       
       def after_wholesaler_failed_create
-        flash[:error] = "Wholesale account could not be created!"
+        flash[:error] = I18n.t('wholesaler.signup_failed')
         render :action => :new
       end
   

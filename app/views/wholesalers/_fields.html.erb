@@ -8,7 +8,7 @@
     <% end %>
   </fieldset>
 
-  <fieldset class="company-details">
+  <fieldset class="wholesaler-details">
     <legend>Company Information</legend>
     
     <%= render "shared/error_messages", :target => @wholesaler %>
@@ -31,11 +31,11 @@
     </p>
     <p>
       <%= form.label :fax %><br/>
-      <%= form.text_field :fax, :class => 'required' %><span class="req">*</span>
+      <%= form.text_field :fax %>
     </p>
     <p>
       <%= form.label :resale_number %><br/>
-      <%= form.text_field :resale_number, :class => 'required' %><span class="req">*</span>
+      <%= form.text_field :resale_number %>
     </p>
     <p>
       <%= form.label :taxid %><br/>
@@ -43,11 +43,15 @@
     </p>
     <p>
       <%= form.label :web_address %><br/>
-      <%= form.text_field :web_address, :class => 'required' %><span class="req">*</span>
+      <%= form.text_field :web_address %>
     </p>
     <p>
       <%= form.label :terms %><br/>
       <%= form.select :terms, Wholesaler.term_options, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :notes %><br/>
+      <%= form.text_area :notes %>
     </p>
   </fieldset>
 </fieldset>
