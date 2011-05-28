@@ -16,47 +16,18 @@ CheckoutController.class_eval do
   
   # Updates the order and advances to the next state (when possible.)
   def update
-  
-  
-  
-    #v = object_params[:source_attributes][:verification_value].to_s rescue ""
-
-  
-    puts "---------"
-    puts @order.state
-    
     if @order.is_wholesale? && @order.state == "payment" && @order.wholesaler.terms != "Credit Card" && params[:order_pay_at] == "later"
-    
-      puts "OH YA WHOLESALE BABY"
-      puts @order.inspect
-      
-      puts @order.next
-      puts "0000000000000000"
-      puts @order.errors.inspect
-      
-      #cear
-      puts @order.state     
-      
+      @order.next
       return redirect_to(checkout_state_path(@order.state))
     end
     
-    
-  
     if @order.update_attributes(object_params)
-    
-      puts "---------"
-      puts @order.state
-    
       if @order.next
         state_callback(:after)
       else
         flash[:error] = I18n.t(:payment_processing_failed)
         redirect_to checkout_state_path(@order.state) and return
       end
-      
-      puts @order.state
-      
-
       if @order.state == "complete" || @order.completed?
         flash[:notice] = I18n.t(:order_processed_successfully)
         flash[:commerce_tracking] = "nothing special"
@@ -64,12 +35,9 @@ CheckoutController.class_eval do
       else
         redirect_to checkout_state_path(@order.state)
       end
-
     else
       render :edit
     end
   end
-
-  
 
 end
