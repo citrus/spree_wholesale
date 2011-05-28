@@ -39,7 +39,7 @@ begin
       web_address "testcompany.com"
       terms "Credit Card"
       notes "What a guy!"
-      user { User.last || Factory.create(:user) }
+      user { User.wholesale.last || Factory.create(:wholesale_user) }
       bill_address { Factory.create(:address) }
       ship_address { Factory.create(:address) }
     end
@@ -58,7 +58,7 @@ begin
     
     factory :wholesale_user, :parent => :user do
       roles { [Role.find_or_create_by_name("wholesaler")] }
-      wholesaler { Factory.create(:wholesaler) }
+      #wholesaler { Factory.create(:wholesaler) }
     end
     
     factory :order do
@@ -69,10 +69,10 @@ begin
       wholesale false
     end
     
-    factory :wholesale_order, :parent => :order do
-      user { Factory.create(:wholesale_user) }
-      wholesale true
-    end
+    #factory :wholesale_order, :parent => :order do
+    #  #user { Factory.create(:wholesale_user) }
+    #  wholesale true
+    #end
   
   end
   

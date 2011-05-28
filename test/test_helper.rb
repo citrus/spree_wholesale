@@ -46,6 +46,9 @@ Spork.prefork do
 end
 
 Spork.each_run do
+
+  # Default to US
+  Spree::Config.set(:default_country_id => 214)
   
   # Load support files
   Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }

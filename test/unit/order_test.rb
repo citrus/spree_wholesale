@@ -7,13 +7,17 @@ class OrderTest < ActiveSupport::TestCase
 
   fixtures :orders, :products
   
+  def setup
+    @wholesaler = Factory.create(:wholesaler)
+  end
+  
   should "respond to wholesale" do
     order = Order.new
     assert order.respond_to?(:wholesale)
   end
   
   should "be wholesale" do
-    order = Factory.create(:wholesale_order)
+    order = Factory.create(:order, :user => @wholesaler.user, :wholesale => true)
     assert order.is_wholesale?
   end
   
@@ -22,7 +26,7 @@ class OrderTest < ActiveSupport::TestCase
     assert !order.is_wholesale?
     assert !order.to_wholesale!
     assert !order.is_wholesale?    
-    order.user.wholesaler = Factory.create(:wholesaler)
+    order.user.wholesaler = @wholesaler
     assert order.to_wholesale!
     assert order.is_wholesale?    
   end
@@ -36,7 +40,7 @@ class OrderTest < ActiveSupport::TestCase
   end
   
   should "get wholesale price" do
-    order = Factory.create(:wholesale_order)
+    order = Factory.create(:order, :user => @wholesaler.user, :wholesale => true)
     assert_equal 0, order.item_total
     order.add_variant(products(:wholesale).master)
     order.update!

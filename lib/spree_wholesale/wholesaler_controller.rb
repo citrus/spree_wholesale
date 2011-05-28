@@ -41,14 +41,10 @@ module SpreeWholesale
         @user = User.new
       end
       
-      def validate_wholesaler_parts
-        uv = @user.valid?
-        bv = @bill_address.valid?
-        sv = @ship_address.valid?
+      def attach_wholesaler_parts
         @wholesaler.user         = @user
         @wholesaler.bill_address = @bill_address
         @wholesaler.ship_address = @ship_address
-        uv && bv && sv        
       end
       
       def new
@@ -56,7 +52,7 @@ module SpreeWholesale
       end
       
       def create
-        if validate_wholesaler_parts && @wholesaler.save
+        if attach_wholesaler_parts && @wholesaler.save
           after_wholesaler_create
         else
           after_wholesaler_failed_create
@@ -72,7 +68,7 @@ module SpreeWholesale
           @ship_address = @wholesaler.build_ship_address if @ship_address.nil? || @bill_address == @wholesaler.ship_address
           @ship_address.update_attributes(params[:ship_address])
         end
-        validate_wholesaler_parts
+        attach_wholesaler_parts
         @wholesaler.touch && @wholesaler.save
         super
       end
@@ -93,11 +89,11 @@ module SpreeWholesale
           when 'new', 'create'
             @wholesaler = Wholesaler.new(params[:wholesaler])    
             @user = User.new(params[:user])
-            @bill_address = Address.new(params[:bill_address] || { :country_id => default_country })
+            @bill_address = Address.new(params[:bill_address] || { :country_id => default_country.id })
             if use_billing?
               @ship_address = @bill_address
             else
-              @ship_address = Address.new(params[:ship_address] || { :country_id => default_country })
+              @ship_address = Address.new(params[:ship_address] || { :country_id => default_country.id })
             end                    
           when 'edit', 'update', 'destroy'
             @wholesaler   = Wholesaler.find(params[:id])

@@ -1,12 +1,19 @@
 require_relative '../test_helper'
 
 class OrdersControllerTest < ActionController::TestCase
+
+  PRICE = BigDecimal.new("19.99")
+  WHOLESALE = BigDecimal.new("18.00")
   
   should "get show" do
-    @order = Factory.create(:wholesale_order)
-    @user = @order.user
-    @wholesaler = @user.wholesaler
-    
+    @wholesaler = Factory.create(:wholesaler)
+    @user  = @wholesaler.user
+    @order = Factory.create(:order, :wholesale => true, :user => @user)
+    @order.add_variant(products(:wholesale).master)
+    @order.reload
+        
+    assert_equal WHOLESALE, @order.item_total
+    assert @order.is_wholesale? 
     assert @user.wholesaler?
     
     sign_in(@user)

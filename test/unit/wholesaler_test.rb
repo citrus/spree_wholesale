@@ -43,13 +43,16 @@ class WholesalerTest < ActiveSupport::TestCase
     end
     
     should "activate" do 
+      @wholesaler.roles = [Role.find_by_name("user")]
+      
       assert !@wholesaler.active?
       @wholesaler.activate!
       assert @wholesaler.active?
     end
     
     should "deactivate" do 
-      @wholesaler.activate!
+      @wholesaler.roles = [Role.find_by_name("wholesaler")]
+    
       assert @wholesaler.active?
       @wholesaler.deactivate!
       assert !@wholesaler.active?

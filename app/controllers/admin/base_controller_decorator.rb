@@ -3,7 +3,7 @@
   controller.class_eval do
     
     def default_country
-      Country.find Spree::Config[:default_country_id]
+      @default_country ||= Country.find Spree::Config[:default_country_id]
     end
     
   end

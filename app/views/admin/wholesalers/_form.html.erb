@@ -3,59 +3,38 @@
 <div class="leftie">
   <%= hook :admin_wholesaler_form_fields, locals do %>
   
-  <%= render "shared/error_messages", :target => @wholesaler %>
-
-  
-  <fieldset class="user-details">
-    <legend>User Details:</legend>
-    <% if @user.new_record? %>
-      <%= fields_for :user, @user do |uf| %>
-        <%= render "shared/error_messages", :target => @user %>
-        <%= render 'admin/users/form', :f => uf %>
-      <% end %>
-    <% else %>
-    <p>
-      <b>User Id:</b>
-      <%= link_to @user.id, admin_user_path(@user) %>
-      <br/>
-      <%= link_to "view user", admin_user_path(@user) %> / 
-      <%= link_to "edit user", edit_admin_user_path(@user) %> /
-      <%= render "user_options" %>      
-    </p>
-    <% end %>
-  </fieldset>
-  
-  
   <fieldset class="wholesaler-details">
     <legend>Wholesaler Details:</legend>
   
+    <%= render "shared/error_messages", :target => @wholesaler %>  
+  
     <%= f.field_container :company do %>
       <%= f.label :company, t(".company") %><br />
-      <%= f.text_field :company  %>
+      <%= f.text_field :company, :class => 'required' %><span class="req">*</span>
       <%= error_message_on :wholesaler, :company %>
     <% end %>
   
     <%= f.field_container :buyer_contact do %>
       <%= f.label :buyer_contact, t(".buyer_contact") %><br />
-      <%= f.text_field :buyer_contact  %>
+      <%= f.text_field :buyer_contact, :class => 'required' %><span class="req">*</span>
       <%= error_message_on :wholesaler, :buyer_contact %>
     <% end %>
   
     <%= f.field_container :manager_contact do %>
       <%= f.label :manager_contact, t(".manager_contact") %><br />
-      <%= f.text_field :manager_contact  %>
+      <%= f.text_field :manager_contact, :class => 'required' %><span class="req">*</span>
       <%= error_message_on :wholesaler, :manager_contact %>
     <% end %>
   
     <%= f.field_container :phone do %>
       <%= f.label :phone, t(".phone") %><br />
-      <%= f.text_field :phone  %>
+      <%= f.text_field :phone, :class => 'required' %><span class="req">*</span>
       <%= error_message_on :wholesaler, :phone %>
     <% end %>
   
     <%= f.field_container :fax do %>
       <%= f.label :fax, t(".fax") %><br />
-      <%= f.text_field :fax  %>
+      <%= f.text_field :fax %>
       <%= error_message_on :wholesaler, :fax %>
     <% end %>
   
@@ -67,7 +46,7 @@
   
     <%= f.field_container :taxid do %>
       <%= f.label :taxid, t(".taxid") %><br />
-      <%= f.text_field :taxid  %>
+      <%= f.text_field :taxid, :class => 'required' %><span class="req">*</span>
       <%= error_message_on :wholesaler, :taxid %>
     <% end %>
   
@@ -91,6 +70,25 @@
   
   </fieldset>
   <% end %>
+  
+  <fieldset class="user-details">
+    <legend>User Details:</legend>
+    <% if @user.new_record? %>
+      <%= fields_for :user, @user do |uf| %>
+        <%= render "shared/error_messages", :target => @user %>
+        <%= render 'admin/users/form', :f => uf %>
+      <% end %>
+    <% else %>
+    <p>
+      <b>User Id:</b>
+      <%= link_to @user.id, admin_user_path(@user) %>
+      <br/>
+      <%= link_to "view user", admin_user_path(@user) %> / 
+      <%= link_to "edit user", edit_admin_user_path(@user) %> /
+      <%= render "user_options" %>      
+    </p>
+    <% end %>
+  </fieldset>
   
 </div>
 
