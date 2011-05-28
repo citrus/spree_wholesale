@@ -25,7 +25,7 @@
   <p class="state-select" id="state_for_<%= billing ? 'bill' : 'ship' %>_address">
     <% have_states = !address.country.states.empty? %>
     <%= form.label :state_id, t(:state) %><br/>
-    <span class="field"><%= render 'state_field', :prefix => billing ? 'bill' : 'ship', :value => address, :states => address.country.states.sort %></span>
+    <span class="field"><%= render 'shared/state_field', :prefix => billing ? 'bill' : 'ship', :value => address, :states => address.country.states.sort %></span>
     <span class="req">*</span>
   </p>
 <% end %>

@@ -1,6 +1,6 @@
 <fieldset class="leftie">
   
-  <fieldset>
+  <fieldset class="user-details">
     <legend>User</legend>
     <%= fields_for :user, @user do |uf| %>
       <%= render "shared/error_messages", :target => @user %>
@@ -8,7 +8,7 @@
     <% end %>
   </fieldset>
 
-  <fieldset>
+  <fieldset class="company-details">
     <legend>Company Information</legend>
     
     <%= render "shared/error_messages", :target => @wholesaler %>
@@ -54,7 +54,7 @@
 
 <fieldset class="rightie">
   
-  <fieldset>
+  <fieldset class="billing-details">
     <legend>Billing Address</legend>
     <%= fields_for :bill_address, @bill_address do |af| %>
       <%= render "shared/error_messages", :target => @bill_address %>
@@ -62,7 +62,7 @@
     <% end %>
   </fieldset>
   
-  <fieldset id="fields_ship_address">
+  <fieldset class="shipping-details">
     <legend>Shipping Address</legend>
     <%= fields_for :ship_address, @ship_address do |af| %>
       <%= render "shared/error_messages", :target => @ship_address %>
@@ -79,19 +79,5 @@
 <br class="clear"/>
 
 <% content_for :head do %>
-  <%= javascript_include_tag '/states', 'admin/wholesaler_address' %>
-  <script type="text/javascript">
-    //<![CDATA[
-    jQuery(document).ready(function(){
-      $('span#bcountry select').change(function() { update_wholesaler_state('b'); }).change();
-      $('span#scountry select').change(function() { update_wholesaler_state('s'); }).change();
-      <% if @wholesaler.new_record? || @bill_address == @ship_address %>
-        $('#wholesaler_use_billing').attr('checked', true).change();
-      <% end %>  
-    	$('#wholesaler_use_billing').change(function(evt) {
-        $('#fields_ship_address').toggle(!$(this).is(':checked'));
-      }).change(); 
-    });
-  //]]>
-  </script>  
+  <%= javascript_include_tag 'wholesaler_address' %>
 <% end %>

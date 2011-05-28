@@ -6,9 +6,7 @@ $(document).ready(function() {
     var prefix = parent.attr('id').match(/bill/i) ? 'bill' : 'ship';
     var current = span.find('.required');
     
-    console.log(current);
-    
-    $.get('/admin/wholesaler/states', { country_id: this.options[this.selectedIndex].value }, function(res) {
+    $.get('/wholesaler/states', { country_id: this.options[this.selectedIndex].value }, function(res) {
       res = res.replace(/"_address/g, '"' + prefix + '_address');
       span.html(res);
     });
@@ -16,7 +14,7 @@ $(document).ready(function() {
   });
     
   $('#wholesaler_use_billing').change(function(evt) {
-    $('#fields_ship_address').toggle(!$(this).is(':checked'));
+    $('.shipping-details').toggle(!$(this).is(':checked'));
   }).change();
   
 });

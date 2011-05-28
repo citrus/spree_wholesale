@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  
+
+  get '/wholesaler/states' => "wholesaler_states#index"
+    
   resources :wholesalers
   
   namespace(:admin) do
-    
-    get '/wholesaler/states' => "wholesaler_states#index"
   
     resources :wholesalers do
       member do

@@ -103,7 +103,7 @@
   </fieldset>
   
   
-  <fieldset class="shipping-details" id="fields_ship_address">
+  <fieldset class="shipping-details">
     <legend>Shipping Address Details:</legend>
     <%= fields_for :ship_address, @ship_address do |af| %>
       <%= render "shared/error_messages", :target => @ship_address %>
@@ -117,5 +117,5 @@
 
 <% content_for :head do %>
   <%= stylesheet_link_tag 'admin/wholesalers' %>
-  <%= javascript_include_tag 'admin/wholesaler_address' %> 
+  <%= javascript_include_tag 'wholesaler_address' %>
 <% end %>
