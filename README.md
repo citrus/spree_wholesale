@@ -10,7 +10,12 @@ Installation
 
 If you're on Spree 0.50.0 and above, you'll have to install Spree Wholesale from the source since I haven't released it yet. Just add this to your Gemfile:
 
+    # spree 0.60.x
     gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale'
+    
+    # spree 0.50.x
+    gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale', :branch => '0.50.x'
+    
 
 Otherwise just use the last stable release:
     
@@ -19,9 +24,14 @@ Otherwise just use the last stable release:
     
 Then install the necessary migrations, db:migrate, and create the wholesale role:
 
+    # spree 0.50.x and above
     rails g spree_wholesale:install
     rake db:migrate spree_wholesale:create_role
-    
+
+    # legacy spree
+    rake spree_wholesale:install
+    rake db:migrate spree_wholesale:create_role
+      
       
 If you'd like to generate sample wholesale prices based on a 66% discount:
 
@@ -51,4 +61,4 @@ To Do
 License
 -------
 
-Copyright (c) 2011 Spencer Steffen, released under the New BSD License All rights reserved.
+Copyright (c) 2011 Spencer Steffen and Citrus, released under the New BSD License All rights reserved.
