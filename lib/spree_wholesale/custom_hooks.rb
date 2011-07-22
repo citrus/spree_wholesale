@@ -42,7 +42,7 @@ Deface::Override.new(:virtual_path => 'checkout/payment',
 #insert_after  :admin_order_show_buttons,  'hooks/wholesale_customer_id'
     Deface::Override.new(:virtual_path => 'orders/show',
                           :name => 'admin-order-show-buttons',
-                          :insert_bottom => "[data-hook='admin_order_show_buttons']",
+                          :insert_after => "[data-hook='admin_order_show_buttons']",
                           :partial => "hooks/wholesale_customer_id")
 
 
