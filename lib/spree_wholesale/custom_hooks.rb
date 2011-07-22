@@ -5,19 +5,19 @@ module SpreeWholesale
 #replace :cart_item_price,                 'hooks/cart_item_price'
 Deface::Override.new(:virtual_path => 'orders/_line_item',
                           :name => 'cart_item_price',
-                          :insert_before => "[data-hook='cart_item_price']",
+                          :replace => "[data-hook='cart_item_price']",
                           :partial => "hooks/cart_item_price")
                           
 #replace :cart_item_total,                 'hooks/cart_item_total'
 Deface::Override.new(:virtual_path => 'orders/_line_item',
                           :name => 'cart_item_total',
-                          :insert_before => "[data-hook='cart_item_total']",
+                          :replace => "[data-hook='cart_item_total']",
                           :partial => "hooks/cart_item_total")
 
 #replace :admin_product_form_right,        'admin/hooks/product_form_right'
 Deface::Override.new(:virtual_path => 'admin/products/form',
                           :name => 'productform_right',
-                          :insert_before => "[data-hook='admin_product_form_right']",
+                          :replace => "[data-hook='admin_product_form_right']",
                           :partial => "admin/hooks/product_form_right")
 
 #insert_before :account_my_orders,         'hooks/wholesale_customer'
