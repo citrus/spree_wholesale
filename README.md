@@ -41,13 +41,13 @@ If you'd like to run tests:
 
 
 To Do
-***
+-------
 
 * Write more/better tests
 * Finish i18n implementation 
 
 Known Issues
-***
+-------
 
 * A user created in the 'user' tab, or an already existing user with an added 'wholesaler' flag will not be able to purchase at wholesale price. They will see the retail and wholesale price, but when added to cart will purchase at retail price. Only accounts created using wholesale interface work properly.
 * Deface override for admin_tabs (Adds wholesalers tab to admin interface) isn't targeting hook correctly, and has been set to insert to bottom of the div#store-menu ul instead.
