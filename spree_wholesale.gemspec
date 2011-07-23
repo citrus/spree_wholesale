@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   
   s.add_dependency('spree_core', '>= 0.60.0')
   s.add_dependency('spree_auth', '>= 0.60.0')
+  s.add_dependency('deface')
   
   s.add_development_dependency('spree_sample',       '>= 0.60.0')
   s.add_development_dependency('shoulda',            '>= 2.11.3')
