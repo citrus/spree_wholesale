@@ -67,7 +67,7 @@ Deface::Override.new(:virtual_path => 'admin/orders/index',
 # insert_after :admin_tabs,                 'admin/hooks/wholesale_tab'
 Deface::Override.new(:virtual_path => "layouts/admin",
 :name => "admin-wholesale-tab",
-:insert_after => "[data-hook='admin_tabs']",
+:insert_after => "div#admin-menu",
 :partial => "admin/hooks/wholesale_tab")
 
   end
