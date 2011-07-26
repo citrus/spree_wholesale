@@ -10,8 +10,11 @@ Installation
 
 If you're on Spree 0.50.0 and above, you'll have to install Spree Wholesale from the source since I haven't released it yet. Just add this to your Gemfile:
 
+    # spree 0.70.x
+    gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale', :branch => '0.70.x'
+    
     # spree 0.60.x
-    gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale'
+    gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale', :branch => '0.60.x'
     
     # spree 0.50.x
     gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale', :branch => '0.50.x'
@@ -46,8 +49,24 @@ If you'd like to run tests:
     
     git clone git://github.com/citrus/spree_wholesale.git
     cd spree_wholesale
-    rake test_app
-    rake
+    bundle install
+    bundle exec dummier
+    bundle exec rake
+
+
+Demo
+----
+
+If you'd like a demo of spree_wholesale:
+    
+    git clone git://github.com/citrus/spree_wholesale.git
+    cd spree_wholesale
+    mv test/dummy_hooks/after_migrate.rb.sample mv test/dummy_hooks/after_migrate.rb
+    bundle install
+    bundle exec dummier
+    cd test/dummy
+    rails s
+    
 
 
 To Do
@@ -56,6 +75,7 @@ To Do
 * Write more/better tests
 * Finish i18n implementation 
 
+
 Known Issues
 -------
 
@@ -63,7 +83,12 @@ Known Issues
 * Deface override for admin_tabs (Adds wholesalers tab to admin interface) isn't targeting hook correctly, and has been set to insert to bottom of the div#store-menu ul instead.
 
 
-    
+Contributors
+------------
+
+* Spencer Steffen ([@citrus](https://github.com/citrus))
+* Cameron Carroll ([@sanarothe](https://github.com/sanarothe))
+
 
 License
 -------
