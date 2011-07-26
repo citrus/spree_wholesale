@@ -1,0 +1,24 @@
+<% 1.upto(100) do |i| %>
+tax_<%= i %>:
+  order: order_<%= i %>
+  amount: 0
+  source: order_<%= i %>
+  source_type: Order
+  originator:
+  originator_type:
+  label: Tax
+  locked: false
+  mandatory: true
+<% end %>
+<% 1.upto(100) do |i| %>
+ship_<%= i %>:
+  order: order_<%= i %>
+  amount: 5
+  source: shipment_<%= i %>
+  source_type: Shipment
+  originator:
+  originator_type:
+  label: Shipping
+  locked: true
+  mandatory: true
+<% end %>
