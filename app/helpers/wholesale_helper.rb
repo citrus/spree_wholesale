@@ -1,3 +1,3 @@
-module WholeSaleHelper
+module WholesaleHelper
   
 end
