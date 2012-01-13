@@ -20,7 +20,7 @@ class InstallSpreeWholesale < ActiveRecord::Migration
       t.timestamps
     end
   
-    add_index :wholesalers, [:billing_address_id, :shipping_address_id]
+    add_index :wholesalers, [:billing_address_id, :shipping_address_id], :name => "wholesalers_addresses"
   
     add_column :orders,   :wholesale,       :boolean, :default   => false
     add_column :variants, :wholesale_price, :decimal, :precision => 8, :scale => 2, :null => false, :default => 0
