@@ -29,6 +29,6 @@ Gem::Specification.new do |s|
 	s.add_development_dependency('spork',              '>= 0.9.0.rc9')
   s.add_development_dependency('spork-testunit',     '>= 0.0.5')
 	s.add_development_dependency('sqlite3',            '>= 1.3.4')
-#  s.add_development_dependency('dummier',            '>= 0.2.0')
+  s.add_development_dependency('dummier',            '>= 0.2.0')
   
 end
