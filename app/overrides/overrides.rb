@@ -1,8 +1,8 @@
-  require 'deface'  
+require 'deface'  
   
-  #Hooks have been replaced by Deface overrides
-  #Check out https://github.com/railsdog/deface for a quick overview of how it works and how to use it.
-  #
+#Hooks have been replaced by Deface overrides
+#Check out https://github.com/railsdog/deface for a quick overview of how it works and how to use it.
+#
 
 #replace :cart_item_price,                 'hooks/cart_item_price'
 Deface::Override.new(:virtual_path => 'orders/_line_item',
