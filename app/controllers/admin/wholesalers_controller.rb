@@ -34,10 +34,12 @@ class Admin::WholesalersController < Admin::ResourceController
   private
   
     def collection
+      return @collection if @collection.present?
+      
       params[:search] ||= {}
       params[:search][:meta_sort] ||= "company.asc"
-      @search = Wholesaler.search(params[:search])
-      @collection = @search.paginate(:per_page => Spree::Config[:admin_products_per_page], :page => params[:page])
+      @search = Wholesaler.metasearch(params[:search])
+      @collection = @search.page(params[:page]).per(Spree::Config[:admin_products_per_page])
     end
  
 end
