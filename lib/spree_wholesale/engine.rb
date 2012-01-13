@@ -1,4 +1,4 @@
-require 'sass'
+#require 'sass'
 
 module SpreeWholesale
   class Engine < Rails::Engine
@@ -6,10 +6,10 @@ module SpreeWholesale
 
     config.autoload_paths += %W(#{config.root}/lib)
 
-    Sass::Engine::DEFAULT_OPTIONS[:load_paths].tap do |load_paths|
-      load_paths << "#{SpreeWholesale::Engine.root}/app/assets/stylesheets"
-      load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets"
-    end
+    # Sass::Engine::DEFAULT_OPTIONS[:load_paths].tap do |load_paths|
+    #    load_paths << "#{SpreeWholesale::Engine.root}/app/assets/stylesheets"
+    #    load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets"
+    #  end
 
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), "../../app/**/*_decorator*.rb")) do |c|
