@@ -13,6 +13,7 @@ Spork.prefork do
   
   require 'rails/test_help'
   require 'shoulda'
+  require 'shoulda/rails'
   require 'factory_girl'
   require 'capybara/rails'
 
