@@ -1,10 +1,4 @@
 en:
-
-  successfully_created: %{resource} was successfully created.
-  successfully_updated: %{resource} was successfully updated.
-  successfully_removed: %{resource} was successfully removed.
-
-
   billing_firstname: "Billing First Name"
   billing_lastname: "Billing Last Name"
   shipping_firstname: "Shipping First Name"
