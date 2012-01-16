@@ -50,6 +50,10 @@ module SpreeWholesale
         @wholesaler ||= Wholesaler.new(params[:wholesaler])
       end
       
+      def edit
+        @wholesaler ||= Wholesaler.find(params[:wholesaler])
+      end
+              
       def create
         if attach_wholesaler_parts && @wholesaler.save
           after_wholesaler_create
