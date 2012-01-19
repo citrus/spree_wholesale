@@ -1,15 +1,22 @@
-#require 'sass'
-
 module SpreeWholesale
   class Engine < Rails::Engine
     engine_name 'spree_wholesale'
 
     config.autoload_paths += %W(#{config.root}/lib)
+    
+    class WholesalerAbility  
+      include CanCan::Ability 
 
-    # Sass::Engine::DEFAULT_OPTIONS[:load_paths].tap do |load_paths|
-    #    load_paths << "#{SpreeWholesale::Engine.root}/app/assets/stylesheets"
-    #    load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets"
-    #  end
+      def initialize(user) 
+        user ||= User.new 
+        can :index,  Wholesaler
+        can :new,    Wholesaler
+        can :create, Wholesaler
+        can :read, :update, Wholesaler do |resource|
+          resource.user == user || user.has_role?(:admin)
+        end
+      end
+    end
 
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), "../../app/**/*_decorator*.rb")) do |c|
@@ -19,8 +26,10 @@ module SpreeWholesale
       Dir.glob(File.join(File.dirname(__FILE__), "../../app/overrides/**/*.rb")) do |c|
         Rails.application.config.cache_classes ? require(c) : load(c)
       end
+      
+      Ability.register_ability(WholesalerAbility)      
     end
-
+    
     config.to_prepare &method(:activate).to_proc
   end
 end
