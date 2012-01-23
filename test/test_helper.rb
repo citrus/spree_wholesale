@@ -16,9 +16,18 @@ Spork.prefork do
   require 'shoulda/rails'
   require 'factory_girl'
   require 'capybara/rails'
+  require 'database_cleaner'
+  require 'minitest/autorun'
+
+  # Load support files
+  Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+
+  DatabaseCleaner.strategy = :truncation
+  
+  include HelperMethods
 
   ActionMailer::Base.delivery_method    = :test
-  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.perform_deliveries = false
   ActionMailer::Base.default_url_options[:host] = "example.com"
 
   Rails.backtrace_cleaner.remove_silencers!
@@ -42,17 +51,12 @@ Spork.prefork do
   class ActionController::IntegrationTest
     self.fixture_path = File.expand_path('../fixtures', __FILE__)
   end
-
+  
+  # Default to US
+  Spree::Config.set(:default_country_id => 214)
 end
 
 Spork.each_run do
-
-  # Default to US
-  Spree::Config.set(:default_country_id => 214)
-  
-  # Load support files
-  Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
-  
-  include HelperMethods
-  
+  FactoryGirl.reload
+  Rails.application.reload_routes!  
 end

@@ -9,18 +9,24 @@ class ActiveSupport::IntegrationCase < ActiveSupport::TestCase
   self.use_transactional_fixtures = false
   self.fixture_path = File.expand_path('../../fixtures', __FILE__)
 
+  teardown do
+    DatabaseCleaner.clean       # Truncate the database
+    Capybara.reset_sessions!    # Forget the (simulated) browser state
+    Capybara.use_default_driver # Revert Capybara.current_driver to Capybara.default_driver
+  end
+    
   def assert_seen(text, opts={})
     if opts[:within]
       within(opts[:within]) do
-        assert has_content?(text)
+        assert page.has_content?(text)
       end
     else
-      assert has_content?(text)
+      assert page.has_content?(text)
     end
   end
   
   def assert_flash(key, text)
-    within(".flash.#{key}") do
+    within(".errorExplanation") do
       assert_seen(text)
     end
   end

@@ -23,7 +23,8 @@ class AdminWholesalersTest < ActiveSupport::IntegrationCase
   
   should "get new wholesaler" do
     visit new_admin_wholesaler_path
-    assert has_content?("New Wholesaler")
+    # assert has_content?("New Wholesaler")
+    assert page.has_content?('New Wholesaler')
     within "#new_wholesaler" do
       @labels.each do |f|
         assert has_field?(f)
@@ -35,8 +36,11 @@ class AdminWholesalersTest < ActiveSupport::IntegrationCase
   should "validate wholesaler and parts" do
     visit new_admin_wholesaler_path
     click_button "Create"
-    assert_flash(:error, I18n.t('admin.wholesalers.failed'))
-    assert_seen I18n.t("wholesaler.parts_error_message"), :within => ".errorExplanation"
+    # assert_flash(:error, I18n.t('admin.wholesalers.failed'))
+    save_and_open_page
+    assert page.has_content?(I18n.t('wholesaler.signup_failed'))
+    # assert_seen I18n.t("wholesaler.parts_error_message"), :within => ".errorExplanation"
+    assert page.has_content?(I18n.t('wholesaler.parts_error_message'))
   end
   
   should "be a valid wholesaler but invalid parts" do
@@ -46,8 +50,10 @@ class AdminWholesalersTest < ActiveSupport::IntegrationCase
     end
     select 'Credit Card', :from => 'Terms'
     click_button "Create"
-    assert_flash(:error, I18n.t('admin.wholesalers.failed'))
-    assert_seen I18n.t("wholesaler.parts_error_message"), :within => ".errorExplanation"
+    # assert_flash(:error, I18n.t('admin.wholesalers.failed'))
+    assert page.has_content?(I18n.t('wholesaler.signup_failed'))
+    # assert_seen I18n.t("wholesaler.parts_error_message"), :within => ".errorExplanation"
+    assert page.has_content?(I18n.t('wholesaler.parts_error_message'))
   end
   
   should "create wholesaler and parts" do
@@ -77,7 +83,8 @@ class AdminWholesalersTest < ActiveSupport::IntegrationCase
     
     
     click_button "Create"
-    assert_flash(:notice, I18n.t('admin.wholesalers.success'))    
+    # assert_flash(:notice, I18n.t('admin.wholesalers.success'))    
+    assert page.has_content?(I18n.t('admin.wholesalers.success'))
   end
   
   
@@ -111,8 +118,10 @@ class AdminWholesalersTest < ActiveSupport::IntegrationCase
         select 'United States', :from => 'Country'
       end
       click_button "Update"
-      assert_flash(:notice, "Successfully updated!")
-      assert_seen "ylliB notrelliB", :within => ".rightie .adr:first"
+      # assert_flash(:notice, "Successfully updated!")
+      assert page.has_content?('Successfully updated!')
+      # assert_seen "ylliB notrelliB", :within => ".rightie .adr:first"
+      assert page.has_content?('ylliB notrelliB')
     end
     
     
