@@ -37,7 +37,7 @@ class AdminWholesalersTest < ActiveSupport::IntegrationCase
     visit new_admin_wholesaler_path
     click_button "Create"
     # assert_flash(:error, I18n.t('admin.wholesalers.failed'))
-    save_and_open_page
+#    save_and_open_page
     assert page.has_content?(I18n.t('wholesaler.signup_failed'))
     # assert_seen I18n.t("wholesaler.parts_error_message"), :within => ".errorExplanation"
     assert page.has_content?(I18n.t('wholesaler.parts_error_message'))
