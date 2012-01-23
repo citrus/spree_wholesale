@@ -1,8 +1,6 @@
 <%- locals = {:f => f} %>
 
 <div class="leftie">
-  <%= hook :admin_wholesaler_form_fields, locals do %>
-  
   <fieldset class="wholesaler-details">
     <legend>Wholesaler Details:</legend>
   
@@ -69,7 +67,6 @@
     <% end %>
   
   </fieldset>
-  <% end %>
   
   <fieldset class="user-details">
     <legend>User Details:</legend>
@@ -79,14 +76,14 @@
         <%= render 'admin/users/form', :f => uf %>
       <% end %>
     <% else %>
-    <p>
-      <b>User Id:</b>
-      <%= link_to @user.id, admin_user_path(@user) %>
-      <br/>
-      <%= link_to "view user", admin_user_path(@user) %> / 
-      <%= link_to "edit user", edit_admin_user_path(@user) %> /
-      <%= render "user_options" %>      
-    </p>
+      <p>
+        <b>User Id:</b>
+        <%= link_to @user.id, admin_user_path(@user) %>
+        <br/>
+        <%= link_to "view user", admin_user_path(@user) %> / 
+        <%= link_to "edit user", edit_admin_user_path(@user) %> /
+        <%= render "user_options" %>      
+      </p>
     <% end %>
   </fieldset>
   
