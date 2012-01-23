@@ -1,5 +1,4 @@
 class Admin::WholesalersController < Admin::ResourceController
-  resource_controller
   include SpreeWholesale::WholesalerController
   
   before_filter :approval_setup, :only => [ :approve, :reject ]
