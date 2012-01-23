@@ -12,9 +12,13 @@ module SpreeWholesale
         can :index,  Wholesaler
         can :new,    Wholesaler
         can :create, Wholesaler
-        can :read, :update, Wholesaler do |resource|
+        can :read, Wholesaler do |resource|
+          resource.user == user || user.has_role?(:admin)
+        end        
+        can :update, Wholesaler do |resource|
           resource.user == user || user.has_role?(:admin)
         end
+        
       end
     end
 
