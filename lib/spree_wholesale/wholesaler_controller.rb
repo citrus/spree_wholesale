@@ -3,14 +3,10 @@ module SpreeWholesale
 
     def self.included(mod)
       mod.instance_eval do
-        resource_controller
         prepend_before_filter :use_billing?, :only => [:create, :update]
-        before_filter :setup_defaults, :only => [:new,:create,:edit,:update]
-        
-        index.before :new_wholesale_user
-        
+        before_filter :setup_defaults, :only => [:new,:create,:edit,:update]        
+        before_filter :new_wholesale_user, :only => :index
         helper_method :wholesale_role
-        
       end
       mod.send(:include, ClassMethods)
     end
