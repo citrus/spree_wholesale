@@ -2,7 +2,7 @@ class Wholesaler < ActiveRecord::Base
   
   partial_updates = false
   
-  belongs_to :user, :dependent => :destroy  
+  belongs_to :user
   belongs_to :bill_address, :foreign_key => "billing_address_id", :class_name => "Address", :dependent => :destroy
   belongs_to :ship_address, :foreign_key => "shipping_address_id", :class_name => "Address", :dependent => :destroy
   
