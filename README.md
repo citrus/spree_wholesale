@@ -11,7 +11,7 @@ Installation
 If you're on Spree 0.50.0 and above, you'll have to install Spree Wholesale from the source since I haven't released it yet. Just add this to your Gemfile:
 
     # spree 0.70.x
-    gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale'
+    gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale', :branch => 'master'
     
     # spree 0.60.x
     gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale', :branch => '0.60.x'
@@ -61,7 +61,7 @@ If you'd like a demo of spree_wholesale:
     
     git clone git://github.com/citrus/spree_wholesale.git
     cd spree_wholesale
-    mv test/dummy_hooks/after_migrate.rb.sample mv test/dummy_hooks/after_migrate.rb
+    cp test/dummy_hooks/after_migrate.rb.sample test/dummy_hooks/after_migrate.rb
     bundle install
     bundle exec dummier
     cd test/dummy
@@ -87,10 +87,11 @@ Contributors
 ------------
 
 * Spencer Steffen ([@citrus](https://github.com/citrus))
+* John Hwang      ([@tavon](https://github.com/tavon))
 * Cameron Carroll ([@sanarothe](https://github.com/sanarothe))
 
 
 License
 -------
 
-Copyright (c) 2011 Spencer Steffen and Citrus, released under the New BSD License All rights reserved.
+Copyright (c) 2011 - 2012 Spencer Steffen and Citrus, released under the New BSD License All rights reserved.
