@@ -13,11 +13,9 @@ Spork.prefork do
   
   require 'rails/test_help'
   require 'shoulda'
-  require 'shoulda/rails'
   require 'factory_girl'
   require 'capybara/rails'
   require 'database_cleaner'
-  require 'minitest/autorun'
 
   # Load support files
   Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
