@@ -1,13 +1,6 @@
-<%= hook :admin_wholesaler_edit_form_header do %>
-  <h1><%= t("editing_wholesaler") %></h1>
-<% end %>
+<h1><%= t("editing_wholesaler") %></h1>
 
-<%= hook :admin_wholesaler_edit_form do %>
-  <%= form_for [:admin, @wholesaler], :html => { :class => "wholesaler-form" } do |f| %>
-    <%= render :partial => "form", :locals => { :f => f } %>
-
-    <%= hook :admin_wholesaler_edit_form_buttons do %>
-      <%= render :partial => "admin/shared/edit_resource_links" %>
-    <% end %>
-  <% end %>
+<%= form_for [:admin, @wholesaler], :html => { :class => "wholesaler-form" } do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <%= render :partial => "admin/shared/edit_resource_links" %>
 <% end %>

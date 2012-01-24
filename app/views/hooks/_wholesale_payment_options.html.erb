@@ -2,8 +2,8 @@
 <% if order.is_wholesale? %>
   
   <div class="wholesaler-payment" style="padding: 10px; border: 1px solid #ccc; background-color: rgba(255,255,255,0.1);">
-    <h3>Hello Wholesaler!</h3>
-      <p>Your wholesale terms are <b><%= @order.user.wholesaler.terms %></b> which means 
+    <!-- <h3>Hello Wholesaler!</h3> -->
+      <p>Your wholesale terms are <strong><%= @order.user.wholesaler.terms %></strong> which means 
       <% if @order.user.wholesaler.terms == "Credit Card" %>
         that you'll have to pay for this order now.</p>
       <% else %>
@@ -11,7 +11,7 @@
         <% if @order.user.wholesaler.terms == "COD" %>
           when it arrives.
         <% else %>
-          at the end of your <b><%= @order.user.wholesaler.terms.sub("Net ", "") %> day</b> cycle.
+          at the end of your <strong><%= @order.user.wholesaler.terms.sub("Net ", "") %> day</strong> cycle.
         <% end %>
         </p>
         <p>
@@ -28,7 +28,8 @@
             $(document).ready(function() {
               $('input[name=order_pay_at]').change(function(evt) {
           	    evt.preventDefault();
-          	    $('#payment-methods, #payment > p').toggle(this.value == "now");
+          	    $('#payment-methods').toggle(this.value == "now");
+          	    $('#payment-methods').parent().find('> p').toggle(this.value == "now");
           	  });
               if (show_form) $('#order_pay_at_now').attr('checked', true).change();
               else $('#order_pay_at_later').attr('checked', true).change();

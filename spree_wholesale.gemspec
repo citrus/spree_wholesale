@@ -18,17 +18,21 @@ Gem::Specification.new do |s|
   
   s.require_paths = ["lib"]
   
-  s.add_dependency('spree_core', '>= 0.60.0')
-  s.add_dependency('spree_auth', '>= 0.60.0')
-  s.add_dependency('deface',     '>= 0.6.0')
+  s.add_dependency('spree_core', '>= 0.70.0')
+  s.add_dependency('spree_auth', '>= 0.70.0')
+  s.add_dependency('deface',     '>= 0.7.0')
   
-  s.add_development_dependency('spree_sample',       '>= 0.60.0')
-  s.add_development_dependency('shoulda',            '>= 2.11.3')
-  s.add_development_dependency('factory_girl',       '>= 2.0.0.beta4')
-	s.add_development_dependency('capybara',           '>= 1.0.0')
-	s.add_development_dependency('spork',              '>= 0.9.0.rc9')
-  s.add_development_dependency('spork-testunit',     '>= 0.0.5')
-	s.add_development_dependency('sqlite3',            '>= 1.3.4')
-  s.add_development_dependency('dummier',            '>= 0.2.0')
-  
+  s.add_development_dependency('spree_sample',            '>= 0.70.0')
+  s.add_development_dependency('shoulda',                 '>= 2.11.3')
+  s.add_development_dependency('factory_girl',            '>= 2.5')  
+  s.add_development_dependency('factory_girl_rails',      '>= 1.6')
+	s.add_development_dependency('minitest',                '>= 2.5.1')
+	s.add_development_dependency('capybara',                '>= 1.1.1')	
+	s.add_development_dependency('capybara_minitest_spec',  '>= 0.2.1')	
+	s.add_development_dependency('launchy',                 '>= 2.0.5')	
+	s.add_development_dependency('database_cleaner',        '>= 0.6.7')
+	s.add_development_dependency('spork',                   '>= 0.9.0.rc9')
+  s.add_development_dependency('spork-testunit',          '>= 0.0.5')
+	s.add_development_dependency('sqlite3',                 '>= 1.3.4')
+  s.add_development_dependency('dummier',                 '>= 0.2.0')  
 end

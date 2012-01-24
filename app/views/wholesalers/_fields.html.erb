@@ -75,7 +75,11 @@
   </fieldset>
   
   <p class="action">
-    <%= form.submit t("wholesale_apply"), :class => 'button' %>
+    <% if controller.action_name == "new" %>
+      <%= form.submit t("wholesale_apply"), :class => 'button' %>
+    <% else %>
+      <%= form.submit t("update"), :class => 'button' %>
+    <% end %>
   </p>
   
 </fieldset>

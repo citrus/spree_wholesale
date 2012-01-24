@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110726164301) do
+ActiveRecord::Schema.define(:version => 20120113205512) do
+
+  create_table "activators", :force => true do |t|
+    t.string   "description"
+    t.datetime "expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "starts_at"
+    t.string   "name"
+    t.string   "event_name"
+    t.string   "type"
+  end
 
   create_table "addresses", :force => true do |t|
     t.string   "firstname"
@@ -43,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20110726164301) do
     t.boolean  "locked"
     t.integer  "originator_id"
     t.string   "originator_type"
+    t.boolean  "eligible",        :default => true
   end
 
   add_index "adjustments", ["order_id"], :name => "index_adjustments_on_order_id"
@@ -204,23 +217,23 @@ ActiveRecord::Schema.define(:version => 20110726164301) do
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.string   "number",               :limit => 15
-    t.decimal  "item_total",                                                       :default => 0.0,   :null => false
-    t.decimal  "total",                                                            :default => 0.0,   :null => false
+    t.decimal  "item_total",                         :default => 0.0,   :null => false
+    t.decimal  "total",                              :default => 0.0,   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "state"
-    t.decimal  "adjustment_total",                                                 :default => 0.0,   :null => false
-    t.decimal  "credit_total",                                                     :default => 0.0,   :null => false
+    t.decimal  "adjustment_total",                   :default => 0.0,   :null => false
+    t.decimal  "credit_total",                       :default => 0.0,   :null => false
     t.datetime "completed_at"
     t.integer  "bill_address_id"
     t.integer  "ship_address_id"
-    t.decimal  "payment_total",                      :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "payment_total",                      :default => 0.0
     t.integer  "shipping_method_id"
     t.string   "shipment_state"
     t.string   "payment_state"
     t.string   "email"
     t.text     "special_instructions"
-    t.boolean  "wholesale",                                                        :default => false
+    t.boolean  "wholesale",                          :default => false
   end
 
   add_index "orders", ["number"], :name => "index_orders_on_number"
@@ -510,15 +523,15 @@ ActiveRecord::Schema.define(:version => 20110726164301) do
   create_table "variants", :force => true do |t|
     t.integer  "product_id"
     t.string   "sku",                                           :default => "",    :null => false
-    t.decimal  "price",           :precision => 8, :scale => 2,                    :null => false
-    t.decimal  "weight",          :precision => 8, :scale => 2
-    t.decimal  "height",          :precision => 8, :scale => 2
-    t.decimal  "width",           :precision => 8, :scale => 2
-    t.decimal  "depth",           :precision => 8, :scale => 2
+    t.decimal  "price",                                                            :null => false
+    t.decimal  "weight"
+    t.decimal  "height"
+    t.decimal  "width"
+    t.decimal  "depth"
     t.datetime "deleted_at"
     t.boolean  "is_master",                                     :default => false
     t.integer  "count_on_hand",                                 :default => 0,     :null => false
-    t.decimal  "cost_price",      :precision => 8, :scale => 2
+    t.decimal  "cost_price"
     t.integer  "position"
     t.decimal  "wholesale_price", :precision => 8, :scale => 2, :default => 0.0,   :null => false
   end
@@ -544,7 +557,7 @@ ActiveRecord::Schema.define(:version => 20110726164301) do
     t.datetime "updated_at"
   end
 
-  add_index "wholesalers", ["billing_address_id", "shipping_address_id"], :name => "index_wholesalers_on_billing_address_id_and_shipping_address_id"
+  add_index "wholesalers", ["billing_address_id", "shipping_address_id"], :name => "altered_wholesalers_addresses"
 
   create_table "zone_members", :force => true do |t|
     t.integer  "zone_id"

@@ -16,23 +16,23 @@ class WholesalersTest < ActiveSupport::IntegrationCase
   
   should "have a link to new wholesaler" do
     visit wholesalers_path
-    within "#content .right form" do
-      assert has_field?("Email")
-      assert has_field?("Password")
+    within ".login" do
+      assert page.has_field?("Email")
+      assert page.has_field?("Password")
     end
-    assert has_link?("Apply Now!")
+    assert page.has_link?("Apply Now!")
     click_link "Apply Now!"
     assert_equal new_wholesaler_path, current_path
   end
     
   should "get new wholesaler" do
     visit new_wholesaler_path
-    assert has_content?(I18n.t('wholesale_signup'))
+    assert page.has_content?(I18n.t('wholesale_signup'))
     within "#new_wholesaler" do
       @labels.each do |f|
-        assert has_field?(f)
+        assert page.has_field?(f)
       end
-      assert has_field?('Terms')
+      assert page.has_field?('Terms')
     end
     assert has_button?(I18n.t('wholesale_apply'))
   end
@@ -40,9 +40,10 @@ class WholesalersTest < ActiveSupport::IntegrationCase
   should "validate wholesaler and parts" do
     visit new_wholesaler_path
     click_button I18n.t('wholesale_apply')
-    assert_flash(:errors, I18n.t('wholesaler.signup_failed'))
-    assert_seen "6 errors prohibited this record from being saved:", :within => ".wholesaler-details .errorExplanation"    
-    assert_seen I18n.t("wholesaler.parts_error_message"), :within => ".wholesaler-details .errorExplanation"
+
+    assert page.has_content?(I18n.t('wholesaler.signup_failed'))
+    assert page.has_content?('6 errors prohibited this record from being saved:')
+    assert page.has_content?(I18n.t('wholesaler.parts_error_message'))
   end
   
   should "be a valid wholesaler but invalid parts" do
@@ -52,8 +53,10 @@ class WholesalersTest < ActiveSupport::IntegrationCase
     end
     select 'Credit Card', :from => 'Terms'
     click_button I18n.t('wholesale_apply')
-    assert_flash(:errors, I18n.t('wholesaler.signup_failed'))
-    assert_seen I18n.t("wholesaler.parts_error_message"), :within => ".wholesaler-details .errorExplanation"
+    # assert_flash(:errors, I18n.t('wholesaler.signup_failed'))
+    assert page.has_content?(I18n.t('wholesaler.signup_failed'))
+    # assert_seen I18n.t("wholesaler.parts_error_message"), :within => ".wholesaler-details .errorExplanation"
+    assert page.has_content?(I18n.t('wholesaler.parts_error_message'))
   end
   
   should "create wholesaler and parts" do
@@ -78,7 +81,8 @@ class WholesalersTest < ActiveSupport::IntegrationCase
       check "Use billing address for shipping"
     end    
     click_button I18n.t('wholesale_apply')
-    assert_flash(:notice, I18n.t('wholesaler.signup_success'))    
+    # assert_flash(:notice, I18n.t('wholesaler.signup_success'))    
+    assert page.has_content?(I18n.t('wholesaler.signup_success'))
   end
  
 end

@@ -14,42 +14,35 @@
 <table class="index">
   <thead>
   <tr>
-    <%= hook :admin_wholesalers_index_headers do %>
-      <th><%= sort_link @search, :company, t('wholesaler') %></th>
-      <th><%= sort_link @search, :buyer_contact, t('buyer_contact') %></th>
-      <th><%= sort_link @search, :user_email, t('email') %></th>
-      <th><%= sort_link @search, :phone, t('phone') %></th>
-      <th><%= t('active') %></th>
-      <th>
-        <%= hook :admin_wholesalers_index_header_actions %>
-      </th>
-    <% end %>
+    <th><%= sort_link @search, :company, t('wholesaler') %></th>
+    <th><%= sort_link @search, :buyer_contact, t('buyer_contact') %></th>
+    <th><%= sort_link @search, :user_email, t('email') %></th>
+    <th><%= sort_link @search, :phone, t('phone') %></th>
+    <th><%= t('active') %></th>
+    <th>
+    </th>
   </tr>
   </thead>
   <tbody>
     <% @wholesalers.each do |wholesaler|%>
       <tr id="<%= dom_id wholesaler %>">
         <%- locals = {:wholesaler => wholesaler} %>
-        <%= hook :admin_wholesalers_index_rows, locals do %>
-          <td><%=link_to wholesaler.company, object_url(wholesaler) %></td>
-          <td><%= wholesaler.buyer_contact %></td>
-          <td><%= mail_to wholesaler.email %></td>
-          <td><%= wholesaler.phone %></td>
-          <td width="50px"><%= wholesaler.roles.include?(wholesale_role) ? 'yes' : 'no' %></td>
-        <% end %>
-        <td>
-          <%= hook :admin_wholesalers_index_row_actions, locals do %>
-            <%= link_to_edit wholesaler %> &nbsp;
-            <%= link_to_delete wholesaler %> &nbsp;
-            <%= render 'user_options', :wholesaler => wholesaler %>
-          <% end %>
+        <td><%=link_to wholesaler.company, object_url(wholesaler) %></td>
+        <td><%= wholesaler.buyer_contact %></td>
+        <td><%= mail_to wholesaler.email %></td>
+        <td><%= wholesaler.phone %></td>
+        <td width="50px"><%= wholesaler.roles.include?(wholesale_role) ? 'yes' : 'no' %></td>
+        <td>          
+          <%= link_to_edit wholesaler %> &nbsp;
+          <%= link_to_delete wholesaler %> &nbsp;
+          <%= render 'user_options', :wholesaler => wholesaler %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= will_paginate(:previous_label => "&#171; #{t('previous')}", :next_label => "#{t('next')} &#187;") %>
+<%= paginate @wholesalers %>
 
 
 
@@ -58,34 +51,31 @@
   <h3><%= t('search') %></h3>
 
   <% @wholesaler = Wholesaler.metasearch %>
+  
   <%= form_for [:admin, @wholesaler] do |f| %>
     <%- locals = {:f => f} %>
-    <%= hook :admin_wholesalers_index_search, locals do %>
-        <p>
-          <%= t(".company") %><br />
-          <%= f.text_field :company_contains, :size=>18 %>
-        </p>
-        <p>
-          <%= t(".buyer_contact") %><br />
-          <%= f.text_field :buyer_contact_contains, :size=>18 %>
-        </p>
-        <p>
-          <%= t(".manager_contact") %><br />
-          <%= f.text_field :manager_contact_contains, :size=>18 %>
-        </p>
-        <p>
-          <%= t("phone") %><br />
-          <%= f.text_field :phone_contains, :size=>18 %>
-        </p>
-        <p>
-          <%= t(".notes") %><br />
-          <%= f.text_field :notes_contains, :size=>18 %>
-        </p>
-        
-      <% end %>
-      <%= hook :admin_wholesalers_index_search_buttons, locals do %>
-        <p><%= button t("search") %></p>
-      <% end %>
-    <% end %>
-  </div>
+    <p>
+      <%= t(".company") %><br />
+      <%= f.text_field :company_contains, :size=>18 %>
+    </p>
+    <p>
+      <%= t(".buyer_contact") %><br />
+      <%= f.text_field :buyer_contact_contains, :size=>18 %>
+    </p>
+    <p>
+      <%= t(".manager_contact") %><br />
+      <%= f.text_field :manager_contact_contains, :size=>18 %>
+    </p>
+    <p>
+      <%= t("phone") %><br />
+      <%= f.text_field :phone_contains, :size=>18 %>
+    </p>
+    <p>
+      <%= t(".notes") %><br />
+      <%= f.text_field :notes_contains, :size=>18 %>
+    </p>
+    
+    <p><%= button t("search") %></p>
+  <% end %>
+</div>
 <% end %>
