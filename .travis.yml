@@ -1,0 +1,14 @@
+before_script:
+  - "sh -e /etc/init.d/xvfb start"
+  - "bundle exec dummier"
+  
+script: "DISPLAY=:99.0 bundle exec rake"
+
+branches:
+  only:
+    - master
+
+rvm:
+  - 1.9.2
+  - 1.9.3
+  # we'll add other rubies when we're not using require_relative
