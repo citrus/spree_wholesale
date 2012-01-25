@@ -40,10 +40,6 @@ class ActiveSupport::TestCase
   fixtures :all
 end
 
-class ActiveSupport::IntegrationTest
-  self.fixture_path = File.expand_path('../fixtures', __FILE__)
-end
-
 # Default to US
 Spree::Config.set(:default_country_id => 214)
 FactoryGirl.reload
