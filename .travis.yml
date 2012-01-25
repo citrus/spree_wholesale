@@ -9,6 +9,9 @@ branches:
     - master
 
 rvm:
+  - 1.8.7
   - 1.9.2
   - 1.9.3
-  # we'll add other rubies when we're not using require_relative
+  - ree
+  - rbx
+  - jruby
