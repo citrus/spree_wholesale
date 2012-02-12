@@ -2,17 +2,14 @@
   
   <fieldset class="user-details">
     <legend>User</legend>
-    <%= fields_for :user, @user do |uf| %>
-      <%= render "shared/error_messages", :target => @user %>
+    <%= form.fields_for :user do |uf| %>
       <%= render 'shared/user_form', :f => uf %>
     <% end %>
   </fieldset>
 
   <fieldset class="wholesaler-details">
     <legend>Company Information</legend>
-    
-    <%= render "shared/error_messages", :target => @wholesaler %>
-    
+        
     <p>
       <%= form.label :company %><br/>
       <%= form.text_field :company, :class => 'required' %><span class="req">*</span>
@@ -57,35 +54,10 @@
 </fieldset>
 
 <fieldset class="rightie">
-  
-  <fieldset class="billing-details">
-    <legend>Billing Address</legend>
-    <%= fields_for :bill_address, @bill_address do |af| %>
-      <%= render "shared/error_messages", :target => @bill_address %>
-      <%= render 'shared/address_form', :form => af, :address => @bill_address, :billing => true %>
-    <% end %>
-  </fieldset>
-  
-  <fieldset class="shipping-details">
-    <legend>Shipping Address</legend>
-    <%= fields_for :ship_address, @ship_address do |af| %>
-      <%= render "shared/error_messages", :target => @ship_address %>
-      <%= render 'shared/address_form', :form => af, :address => @ship_address %>
-    <% end %>
-  </fieldset>
-  
-  <p class="action">
-    <% if controller.action_name == "new" %>
-      <%= form.submit t("wholesale_apply"), :class => 'button' %>
-    <% else %>
-      <%= form.submit t("update"), :class => 'button' %>
-    <% end %>
-  </p>
-  
+  <%= render "shared/address_form", :form => form %>  
 </fieldset>
-
-<br class="clear"/>
 
 <% content_for :head do %>
   <%= javascript_include_tag 'wholesaler_address' %>
+  <%= javascript_include_tag '/states' %>
 <% end %>

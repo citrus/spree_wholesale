@@ -32,7 +32,11 @@ en:
     signup_success: Thank you for your interest in becoming a wholesaler! We'll be in touch shortly.
     signup_failed: Wholesale account could not be created
     parts_error_message: There are errors with the user or addresses
-  
+    success: Wholesale account was successfully created
+    update_success: Wholesale account was successfully updated
+    failed: Wholesale account could not be created
+    update_failed: Wholesale account could not be updated
+    destroy_success: Wholesale account was successfully deleted  
   
   admin:
     
@@ -47,10 +51,12 @@ en:
         wholesale_price: "Wholesale Price"
     
     
-    wholesalers:
-      
+    wholesaler:      
       success: Wholesale account was successfully created
+      update_success: Wholesale account was successfully updated
       failed: Wholesale account could not be created
+      update_failed: Wholesale account could not be updated
+      destroy_success: Wholesale account was successfully deleted
     
       index:
         company: "Company"

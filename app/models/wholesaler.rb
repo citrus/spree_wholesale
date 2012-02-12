@@ -1,24 +1,26 @@
-class Wholesaler < ActiveRecord::Base
-  
+class Wholesaler < ActiveRecord::Base  
   partial_updates = false
+  
+  attr_accessible :bill_address_attributes, :ship_address_attributes, :user_attributes,
+                  :ship_address, :bill_address,
+                  :company, :buyer_contact, :manager_contact, :phone, :fax, :resale_number, 
+                  :taxid, :web_address, :terms, :notes, :use_billing
   
   belongs_to :user
   belongs_to :bill_address, :foreign_key => "billing_address_id", :class_name => "Address", :dependent => :destroy
   belongs_to :ship_address, :foreign_key => "shipping_address_id", :class_name => "Address", :dependent => :destroy
-  
+
+  accepts_nested_attributes_for :bill_address
+  accepts_nested_attributes_for :ship_address
+  accepts_nested_attributes_for :user
+
+  attr_accessor :use_billing
+  before_validation :clone_billing_address, :if => "@use_billing"  
   validates :company, :buyer_contact, :manager_contact, :phone, :taxid, :presence => true
-  validate :validate_parts
-    
+  
   delegate_belongs_to :user, :roles
   delegate_belongs_to :user, :email
-    
-  def validate_parts
-    uv = user && user.valid? 
-    bv = bill_address && bill_address.valid?
-    sv = ship_address && ship_address.valid?
-    self.errors.add(:base, I18n.t("wholesaler.parts_error_message")) unless uv && bv && sv
-  end
-    
+
   def activate!
     get_wholesale_role
     return false if user.roles.include?(@role)
@@ -40,11 +42,19 @@ class Wholesaler < ActiveRecord::Base
   def self.term_options
     %(Net 10, Net 15, Net 30, COD, Credit Card).split(", ")
   end
-  
+    
   private
   
-    def get_wholesale_role
-      @role = Role.find_by_name("wholesaler")
-    end
+  def get_wholesale_role
+    @role = Role.find_or_create_by_name("wholesaler")
+  end  
   
+  def clone_billing_address
+    if bill_address and self.ship_address.nil?
+      self.ship_address = bill_address.clone
+    else
+      self.ship_address.attributes = bill_address.attributes.except("id", "updated_at", "created_at")
+    end
+    true
+  end
 end

@@ -27,5 +27,5 @@ Gem::Specification.new do |s|
 	s.add_development_dependency('capybara',         '>= 1.1.1')	
 	s.add_development_dependency('sqlite3',          '>= 1.3.4')
   s.add_development_dependency('dummier',          '~> 0.2.4')
-  
+  s.add_development_dependency('launchy',          '~> 2.0.5')    
 end

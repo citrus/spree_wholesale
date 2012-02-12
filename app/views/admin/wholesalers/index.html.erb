@@ -31,7 +31,7 @@
         <td><%= wholesaler.buyer_contact %></td>
         <td><%= mail_to wholesaler.email %></td>
         <td><%= wholesaler.phone %></td>
-        <td width="50px"><%= wholesaler.roles.include?(wholesale_role) ? 'yes' : 'no' %></td>
+        <td width="50px"><%= wholesaler.roles.include?("wholesale") ? 'yes' : 'no' %></td>
         <td>          
           <%= link_to_edit wholesaler %> &nbsp;
           <%= link_to_delete wholesaler %> &nbsp;
