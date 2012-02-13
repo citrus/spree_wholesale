@@ -1,9 +1,0 @@
-<% states ||= [] %>
-<% prefix ||= '' %>
-<% value  ||= '' %>
-
-<% unless states.empty? %>
-  <%= select_tag "#{prefix}_address[state_id]", options_for_select(states.map{|s| [s.name, s.id]}, value.is_a?(Address) ? value.state_id : value), :class => 'required' %>
-<% else %>
-  <%= text_field_tag "#{prefix}_address[state_name]", value.is_a?(Address) ? value.state_name : value, :class => 'text required' %>
-<% end %>

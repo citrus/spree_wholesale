@@ -23,7 +23,6 @@ class WholesalerTest < ActiveSupport::TestCase
     end
     
     should "create valid wholesaler" do
-      assert !@wholesaler.valid?
       @wholesaler.user = Factory.create(:wholesale_user)
       @wholesaler.bill_address = @wholesaler.ship_address = Factory.create(:address)
       assert @wholesaler.valid?

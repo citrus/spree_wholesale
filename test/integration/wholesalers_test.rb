@@ -10,7 +10,7 @@ class WholesalersTest < ActiveSupport::IntegrationCase
     
     @labels = %(Company, Buyer contact, Manager contact, Phone, Fax, Resale number, Taxid, Web address, Notes).split(', ')
     @values = %(Some Company, Buyer contact, Manager contact, 555-555-5555, 555-555-5555 ext 1, 12345, 123-45-6789, example.com, Yippee!).split(', ')
-    @address_labels = %(Billing First Name, Billing Last Name, Street Address, City, Zip, Phone).split(', ')
+    @address_labels = %(First Name, Last Name, Street Address, City, Zip, Phone).split(', ')
     @address_values = %(Billy, Billerton, 111 State St, Santa Barbara, 93101, 555-555-5555).split(', ')
   end
   
@@ -42,8 +42,7 @@ class WholesalersTest < ActiveSupport::IntegrationCase
     click_button I18n.t('wholesale_apply')
 
     assert page.has_content?(I18n.t('wholesaler.signup_failed'))
-    assert page.has_content?('6 errors prohibited this record from being saved:')
-    assert page.has_content?(I18n.t('wholesaler.parts_error_message'))
+    assert page.has_content?('21 errors prohibited this record from being saved:')
   end
   
   should "be a valid wholesaler but invalid parts" do
@@ -53,10 +52,7 @@ class WholesalersTest < ActiveSupport::IntegrationCase
     end
     select 'Credit Card', :from => 'Terms'
     click_button I18n.t('wholesale_apply')
-    # assert_flash(:errors, I18n.t('wholesaler.signup_failed'))
     assert page.has_content?(I18n.t('wholesaler.signup_failed'))
-    # assert_seen I18n.t("wholesaler.parts_error_message"), :within => ".wholesaler-details .errorExplanation"
-    assert page.has_content?(I18n.t('wholesaler.parts_error_message'))
   end
   
   should "create wholesaler and parts" do
@@ -72,16 +68,19 @@ class WholesalersTest < ActiveSupport::IntegrationCase
       fill_in "Password", :with => "password"
       fill_in "Password Confirmation", :with => "password"
     end  
-    within ".billing-details" do
+    within "#billing" do
       @address_labels.each_with_index do |label, index|
         fill_in label, :with => @address_values[index]
       end
       select 'California', :from => 'State'
       select 'United States', :from => 'Country'
-      check "Use billing address for shipping"
     end    
+    
+    within "#shipping" do
+      check "Use Billing Address"
+    end
+    
     click_button I18n.t('wholesale_apply')
-    # assert_flash(:notice, I18n.t('wholesaler.signup_success'))    
     assert page.has_content?(I18n.t('wholesaler.signup_success'))
   end
  

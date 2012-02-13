@@ -1,118 +1,75 @@
-<%- locals = {:f => f} %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'admin/wholesalers' %>
+  <%= javascript_include_tag 'wholesaler_address' %>
+  <%= javascript_include_tag '/states' %>
+  <%= javascript_include_tag 'jquery.validate/jquery.validate.min' %>
+<% end %>
 
 <div class="leftie">
   <fieldset class="wholesaler-details">
-    <legend>Wholesaler Details:</legend>
-  
-    <%= render "shared/error_messages", :target => @wholesaler %>  
-  
-    <%= f.field_container :company do %>
-      <%= f.label :company, t(".company") %><br />
-      <%= f.text_field :company, :class => 'required' %><span class="req">*</span>
-      <%= error_message_on :wholesaler, :company %>
-    <% end %>
-  
-    <%= f.field_container :buyer_contact do %>
-      <%= f.label :buyer_contact, t(".buyer_contact") %><br />
-      <%= f.text_field :buyer_contact, :class => 'required' %><span class="req">*</span>
-      <%= error_message_on :wholesaler, :buyer_contact %>
-    <% end %>
-  
-    <%= f.field_container :manager_contact do %>
-      <%= f.label :manager_contact, t(".manager_contact") %><br />
-      <%= f.text_field :manager_contact, :class => 'required' %><span class="req">*</span>
-      <%= error_message_on :wholesaler, :manager_contact %>
-    <% end %>
-  
-    <%= f.field_container :phone do %>
-      <%= f.label :phone, t(".phone") %><br />
-      <%= f.text_field :phone, :class => 'required' %><span class="req">*</span>
-      <%= error_message_on :wholesaler, :phone %>
-    <% end %>
-  
-    <%= f.field_container :fax do %>
-      <%= f.label :fax, t(".fax") %><br />
-      <%= f.text_field :fax %>
-      <%= error_message_on :wholesaler, :fax %>
-    <% end %>
-  
-    <%= f.field_container :resale_number do %>
-      <%= f.label :resale_number, t(".resale_number") %><br />
-      <%= f.text_field :resale_number  %>
-      <%= error_message_on :wholesaler, :resale_number %>
-    <% end %>
-  
-    <%= f.field_container :taxid do %>
-      <%= f.label :taxid, t(".taxid") %><br />
-      <%= f.text_field :taxid, :class => 'required' %><span class="req">*</span>
-      <%= error_message_on :wholesaler, :taxid %>
-    <% end %>
-  
-    <%= f.field_container :web_address do %>
-      <%= f.label :web_address, t(".web_address") %><br />
-      <%= f.text_field :web_address  %>
-      <%= error_message_on :wholesaler, :web_address %>
-    <% end %>
-  
-    <%= f.field_container :terms do %>
-      <%= f.label :terms, t(".terms") %><br />
-      <%= f.select :terms, Wholesaler.term_options  %>
-      <%= error_message_on :wholesaler, :terms %>
-    <% end %>
-  
-    <%= f.field_container :notes do %>
-      <%= f.label :notes, t(".notes") %><br />
-      <%= f.text_area :notes  %>
-      <%= error_message_on :wholesaler, :notes %>
-    <% end %>
-  
+    <legend>Company Information</legend>
+        
+    <p>
+      <%= form.label :company %><br/>
+      <%= form.text_field :company, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :buyer_contact %><br/>
+      <%= form.text_field :buyer_contact, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :manager_contact %><br/>
+      <%= form.text_field :manager_contact, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :phone %><br/>
+      <%= form.text_field :phone, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :fax %><br/>
+      <%= form.text_field :fax %>
+    </p>
+    <p>
+      <%= form.label :resale_number %><br/>
+      <%= form.text_field :resale_number %>
+    </p>
+    <p>
+      <%= form.label :taxid %><br/>
+      <%= form.text_field :taxid, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :web_address %><br/>
+      <%= form.text_field :web_address %>
+    </p>
+    <p>
+      <%= form.label :terms %><br/>
+      <%= form.select :terms, Wholesaler.term_options, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :notes %><br/>
+      <%= form.text_area :notes %>
+    </p>
   </fieldset>
   
   <fieldset class="user-details">
     <legend>User Details:</legend>
-    <% if @user.new_record? %>
-      <%= fields_for :user, @user do |uf| %>
-        <%= render "shared/error_messages", :target => @user %>
-        <%= render 'admin/users/form', :f => uf %>
+    <% if @wholesaler.new_record? %>
+      <%= form.fields_for :user do |uf| %>
+        <%= render 'shared/user_form', :f => uf %>
       <% end %>
     <% else %>
       <p>
         <b>User Id:</b>
-        <%= link_to @user.id, admin_user_path(@user) %>
+        <%= link_to @wholesaler.user.id, admin_user_path(@wholesaler.user) %>
         <br/>
-        <%= link_to "view user", admin_user_path(@user) %> / 
-        <%= link_to "edit user", edit_admin_user_path(@user) %> /
+        <%= link_to "view user", admin_user_path(@wholesaler.user) %> / 
+        <%= link_to "edit user", edit_admin_user_path(@wholesaler.user) %> /
         <%= render "user_options" %>      
       </p>
     <% end %>
   </fieldset>
-  
 </div>
 
 <div class="rightie">
-  
-  <fieldset class="billing-details">
-    <legend>Billing Address Details:</legend>
-    <%= fields_for :bill_address, @bill_address do |af| %>
-      <%= render "shared/error_messages", :target => @bill_address %>
-      <%= render 'shared/address_form', :form => af, :address => @bill_address, :billing => true %>
-    <% end %>
-  </fieldset>
-  
-  
-  <fieldset class="shipping-details">
-    <legend>Shipping Address Details:</legend>
-    <%= fields_for :ship_address, @ship_address do |af| %>
-      <%= render "shared/error_messages", :target => @ship_address %>
-      <%= render 'shared/address_form',   :form => af, :address => @ship_address %>
-    <% end %>
-  </fieldset>
-  
+  <%= render "shared/address_form", :form => form %>
 </div>
-
-
-
-<% content_for :head do %>
-  <%= stylesheet_link_tag 'admin/wholesalers' %>
-  <%= javascript_include_tag 'wholesaler_address' %>
-<% end %>
