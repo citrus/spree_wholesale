@@ -51,13 +51,14 @@ en:
         wholesale_price: "Wholesale Price"
     
     
-    wholesaler:      
+    wholesaler:
       success: Wholesale account was successfully created
       update_success: Wholesale account was successfully updated
       failed: Wholesale account could not be created
       update_failed: Wholesale account could not be updated
       destroy_success: Wholesale account was successfully deleted
     
+    wholesalers:  
       index:
         company: "Company"
         buyer_contact: "Buyer contact"

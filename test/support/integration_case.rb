@@ -17,7 +17,7 @@ class ActiveSupport::IntegrationCase < ActiveSupport::TestCase
   # Checks for missing translations after each test
   teardown do
     unless source.blank?
-      matches = source.match(/translation[\s-]+missing[^"]*/) || []
+      matches = source.match(/translation[\s-]+missing[^"<]*/) || []
       assert_equal 0, matches.length, "** #{matches[0]}"
     end
   end
