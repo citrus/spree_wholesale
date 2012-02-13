@@ -10,8 +10,11 @@ Installation
 If you're on Spree 0.50.0 and above, you'll have to install Spree Wholesale from the source since I haven't released it yet. Just add this to your Gemfile:
 
 ```ruby
-# spree 0.70.x
+# spree 1.0.x
 gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale', :branch => 'master'
+
+# spree 0.70.x
+gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale', :branch => '0.70.x'
 
 # spree 0.60.x
 gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale', :branch => '0.60.x'
