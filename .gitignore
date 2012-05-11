@@ -4,6 +4,7 @@
 .DS_Store
 .idea
 .project
+coverage/
 Gemfile.lock
 pkg/*.gem
 test/dummy_hooks/after_migrate.rb
