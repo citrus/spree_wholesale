@@ -1,0 +1,4 @@
+<% order ||= @order %>
+<% if order && order.is_wholesale? %>
+  <h4 class="wholesale-customer-id"><%= t('wholesale_customer', { :id => order.user_id }) %></h4>
+<% end %>

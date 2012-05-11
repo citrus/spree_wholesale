@@ -1,7 +1,0 @@
-<h1><%= t("editing_wholesaler") %></h1>
-
-<%= form_for [:admin, @wholesaler], :html => { :class => "wholesaler-form" } do |f| %>
-  <%= render "shared/error_messages", :target => @wholesaler %>
-  <%= render :partial => "form", :locals => { :form => f } %>
-  <%= render :partial => "admin/shared/edit_resource_links" %>
-<% end %>

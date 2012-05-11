@@ -1,0 +1,63 @@
+<fieldset class="leftie">
+
+  <fieldset class="user-details">
+    <legend>User</legend>
+    <%= form.fields_for :user do |uf| %>
+      <%= render 'spree/shared/user_form', :f => uf %>
+    <% end %>
+  </fieldset>
+
+  <fieldset class="wholesaler-details">
+    <legend>Company Information</legend>
+
+    <p>
+      <%= form.label :company %><br/>
+      <%= form.text_field :company, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :buyer_contact %><br/>
+      <%= form.text_field :buyer_contact, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :manager_contact %><br/>
+      <%= form.text_field :manager_contact, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :phone %><br/>
+      <%= form.text_field :phone, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :fax %><br/>
+      <%= form.text_field :fax %>
+    </p>
+    <p>
+      <%= form.label :resale_number %><br/>
+      <%= form.text_field :resale_number %>
+    </p>
+    <p>
+      <%= form.label :taxid %><br/>
+      <%= form.text_field :taxid, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :web_address %><br/>
+      <%= form.text_field :web_address %>
+    </p>
+    <p>
+      <%= form.label :terms %><br/>
+      <%= form.select :terms, Spree::Wholesaler.term_options, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :notes %><br/>
+      <%= form.text_area :notes %>
+    </p>
+  </fieldset>
+</fieldset>
+
+<fieldset class="rightie">
+  <%= render "spree/shared/address_form", :form => form %>
+</fieldset>
+
+<% content_for :head do %>
+  <%= javascript_include_tag 'wholesaler_address' %>
+  <%= javascript_include_tag '/states' %>
+<% end %>

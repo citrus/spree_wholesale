@@ -1,0 +1,8 @@
+admin:
+  name: admin
+
+user:
+  name: user
+
+wholesaler:
+  name: wholesaler

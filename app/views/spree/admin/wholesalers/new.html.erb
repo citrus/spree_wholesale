@@ -1,0 +1,7 @@
+<h1><%= t("new_wholesaler") %></h1>
+
+<%= form_for [:admin, @wholesaler], :html => { :class => "wholesaler-form" } do |f| %>
+  <%= render "spree/shared/error_messages", :target => @wholesaler %>
+  <%= render "form", :form => f %>
+  <%= render "spree/admin/shared/new_resource_links" %>
+<% end %>

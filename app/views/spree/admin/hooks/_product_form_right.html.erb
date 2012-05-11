@@ -1,0 +1,5 @@
+<%= f.field_container :wholesale_price do %>
+  <%= f.label :wholesale_price, t(".master_wholesale_price")%> <span class="required">*</span><br />
+  <%= f.text_field :wholesale_price, :value => number_with_precision(@product.wholesale_price, :precision => 2)  %>
+  <%= f.error_message_on :wholesale_price %>
+<% end %>

@@ -1,0 +1,45 @@
+<% order = (@order || order) %>
+<% if order.is_wholesale? %>
+
+  <div class="wholesaler-payment">
+    <!-- <h3>Hello Wholesaler!</h3> -->
+      <p>Your wholesale terms are <strong><%= @order.user.wholesaler.terms %></strong> which means
+      <% if @order.user.wholesaler.terms == "Credit Card" %>
+        that you'll have to pay for this order now.</p>
+      <% else %>
+        that you can pay for this order now or
+        <% if @order.user.wholesaler.terms == "COD" %>
+          when it arrives.
+        <% else %>
+          at the end of your <strong><%= @order.user.wholesaler.terms.sub("Net ", "") %> day</strong> cycle.
+        <% end %>
+        </p>
+        <p>
+          <%= radio_button_tag "order_pay_at", "now" %>
+          <%= label_tag "order_pay_at_now", "Pay Now" %>
+          &nbsp;
+          <%= radio_button_tag "order_pay_at", "later" %>
+          <%= label_tag "order_pay_at_later", "Pay Later" %>
+        </p>
+        <% content_for :head do %>
+          <script type="text/javascript">
+          //<![CDATA[
+            var show_form = <%= params[:order_pay_at] == "now" %>;
+            $(document).ready(function() {
+              $('input[name=order_pay_at]').change(function(evt) {
+          	    evt.preventDefault();
+          	    $('#payment-methods').toggle(this.value == "now");
+          	    $('#payment-methods').parent().find('> p').toggle(this.value == "now");
+          	  });
+              if (show_form) $('#order_pay_at_now').attr('checked', true).change();
+              else $('#order_pay_at_later').attr('checked', true).change();
+            });
+          //]]>
+          </script>
+        <% end %>
+      <% end %>
+  </div>
+
+  <br/>
+
+<% end %>

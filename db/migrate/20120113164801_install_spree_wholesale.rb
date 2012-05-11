@@ -1,8 +1,7 @@
 class InstallSpreeWholesale < ActiveRecord::Migration
-  
+
   def self.up
-  
-    create_table :wholesalers do |t|
+    create_table :spree_wholesalers do |t|
       t.references :user
       t.integer :billing_address_id
       t.integer :shipping_address_id
@@ -19,19 +18,15 @@ class InstallSpreeWholesale < ActiveRecord::Migration
       t.text   :notes
       t.timestamps
     end
-  
-    add_index :wholesalers, [:billing_address_id, :shipping_address_id], :name => "wholesalers_addresses"
-  
-    add_column :orders,   :wholesale,       :boolean, :default   => false
-    add_column :variants, :wholesale_price, :decimal, :precision => 8, :scale => 2, :null => false, :default => 0
-
+    add_index :spree_wholesalers, [:billing_address_id, :shipping_address_id], :name => "wholesalers_addresses"
+    add_column :spree_orders,   :wholesale,       :boolean, :default   => false
+    add_column :spree_variants, :wholesale_price, :decimal, :precision => 8, :scale => 2, :null => false, :default => 0
   end
 
   def self.down
-    remove_column :variants, :wholesale_price
-    remove_column :orders,   :wholesale
-
-    drop_table :wholesalers
+    remove_column :spree_variants, :wholesale_price
+    remove_column :spree_orders,   :wholesale
+    drop_table :spree_wholesalers
   end
 
 end

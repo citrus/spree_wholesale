@@ -1,12 +1,12 @@
 FactoryGirl.define do
-  
-  factory :state do
+
+  factory :state, :class => Spree::State do
     name "California"
     abbr "CA"
-    country { Country.find_by_iso("US") || Factory.create(:country) }
+    country { Spree::Country.find_by_iso("US") || Factory.create(:country) }
   end
-  
-  factory :country do
+
+  factory :country, :class => Spree::Country do
     name "United States"
     iso3 "USA"
     iso "US"
@@ -14,19 +14,19 @@ FactoryGirl.define do
     numcode 840
   end
 
-  factory :address do
+  factory :address, :class => Spree::Address do
     firstname "Addy"
     lastname "Streetston"
     address1 { "#{100 + rand(1000)} State St" }
     city "Santa Barbara"
     phone "555-555-5555"
     zipcode "93101"
-    state { State.find_by_name("California") || Factory.create(:state) }
-    country { Country.find_by_name("United States") || Factory.create(:country) }
+    state { Spree::State.find_by_name("California") || Factory.create(:state) }
+    country { Spree::Country.find_by_name("United States") || Factory.create(:country) }
   end
-  
-  
-  factory :wholesaler do
+
+
+  factory :wholesaler, :class => Spree::Wholesaler do
     company "Test Company"
     buyer_contact "Mr Contacter"
     manager_contact "Mr Manager"
@@ -37,36 +37,36 @@ FactoryGirl.define do
     web_address "testcompany.com"
     terms "Credit Card"
     notes "What a guy!"
-    user { User.wholesale.last || Factory.create(:wholesale_user) }
+    user { Spree::User.wholesale.last || Factory.create(:wholesale_user) }
     bill_address { Factory.create(:address) }
     ship_address { Factory.create(:address) }
   end
 
-  
-  factory :user do
+
+  factory :user, :class => Spree::User do
     email { random_email }
     password "spree123"
     password_confirmation "spree123"
-    roles { [Role.find_or_create_by_name("user")] }
+    roles { [Spree::Role.find_or_create_by_name("user")] }
   end
-  
+
   factory :admin_user, :parent => :user do
-    roles { [Role.find_or_create_by_name("admin")] }
+    roles { [Spree::Role.find_or_create_by_name("admin")] }
   end
-  
+
   factory :wholesale_user, :parent => :user do
-    roles { [Role.find_or_create_by_name("wholesaler")] }
+    roles { [Spree::Role.find_or_create_by_name("wholesaler")] }
     #wholesaler { Factory.create(:wholesaler) }
   end
-  
-  factory :order do
-    user { User.last || Factory.create(:user) }
+
+  factory :order, :class => Spree::Order do
+    user { Spree::User.last || Factory.create(:user) }
     state 'cart'
     payment_state 'balance_due'
     email { random_email }
     wholesale false
   end
-  
+
   #factory :wholesale_order, :parent => :order do
   #  #user { Factory.create(:wholesale_user) }
   #  wholesale true

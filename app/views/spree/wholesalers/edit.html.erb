@@ -1,0 +1,10 @@
+<h1><%= t('wholesale_update') %></h1>
+
+<%= form_for @wholesaler do |form| %>
+  <%= render "spree/shared/error_messages", :target => @wholesaler %>
+  <%= render 'fields', :form => form %>
+
+  <p class="action">
+    <%= form.submit t("update"), :class => 'button' %>
+  </p>
+<% end %>

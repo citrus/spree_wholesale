@@ -1,0 +1,23 @@
+billing:
+  firstname: Bill
+  lastname: Billerman
+  address1: 1027 State St
+  address2:
+  city: Santa Barbara
+  state_id: 889445952
+  zipcode: 16804
+  country_id: 214
+  phone: 555-555-1027
+
+
+shipping:
+  firstname: Boxy
+  lastname: Shipperman
+  address1: 1000 State St
+  address2:
+  city: Santa Barbara
+  state_id: 889445952
+  zipcode: 16804
+  country_id: 214
+  phone: 555-555-5555
+

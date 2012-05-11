@@ -1,0 +1,68 @@
+<h1><%= t("wholesaler_account") %></h1>
+
+<div class="leftie">
+
+  <h5>Company:</h5>
+  <h3><%= @wholesaler.company %></h3>
+
+  <h5>Buyer_contact:</h5>
+  <h3><%= @wholesaler.buyer_contact %></h3>
+
+  <h5>Manager_contact:</h5>
+  <h3><%= @wholesaler.manager_contact %></h3>
+
+  <h5>Phone:</h5>
+  <h3><%= @wholesaler.phone %></h3>
+
+  <h5>Fax:</h5>
+  <h3><%= @wholesaler.fax %></h3>
+
+  <h5>Resale_number:</h5>
+  <h3><%= @wholesaler.resale_number %></h3>
+
+  <h5>Taxid:</h5>
+  <h3><%= @wholesaler.taxid %></h3>
+
+  <h5>Web_address:</h5>
+  <h3><%= @wholesaler.web_address %></h3>
+
+  <h5>Terms:</h5>
+  <h3><%= @wholesaler.terms %></h3>
+
+  <h5>Notes:</h5>
+  <h3><%= simple_format @wholesaler.notes %></h3>
+
+</div>
+
+<div class="rightie">
+
+  <div class="adr">
+    <h4><%= t("bill_address") %></h4>
+    <%= render 'spree/admin/shared/address', :address => @wholesaler.bill_address %>
+  </div>
+  <div class="adr">
+    <h4><%= t("ship_address") %></h4>
+    <%= render 'spree/admin/shared/address', :address => @wholesaler.ship_address %>
+  </div>
+
+  <div class="adr">
+    <h4><%= t("user_details") %></h4>
+    <p>
+      ID: <%= @wholesaler.user.id %>
+      <br/>
+      Email: <%= @wholesaler.user.email %>
+      <br/>
+      <%= link_to "view user", admin_user_path(@wholesaler.user) %> /
+      <%= link_to "edit user", edit_admin_user_path(@wholesaler.user) %> /
+      <%= render "user_options", :user => @wholesaler.user %>
+    </p>
+  </div>
+
+</div>
+
+<hr/>
+
+<p>
+  <%= link_to_edit @wholesaler %> <%= t('or') %>
+  <%= link_to t('back'), collection_url %>
+</p>

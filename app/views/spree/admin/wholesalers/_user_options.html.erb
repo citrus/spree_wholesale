@@ -1,0 +1,6 @@
+<% wholesaler ||= @wholesaler %>
+<% if wholesaler.active? %>
+  <%= link_to "deny", reject_admin_wholesaler_path(wholesaler) %>
+<% else %>
+  <%= link_to "approve", approve_admin_wholesaler_path(wholesaler) %>
+<% end %>

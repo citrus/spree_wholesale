@@ -1,0 +1,5 @@
+<% if current_user && current_user.has_role?(:wholesaler) %>
+  <% if product.is_wholesaleable? %>
+    <div class="price wholesale"><%= number_to_currency(product.wholesale_price) %></div>
+  <% end %>
+<% end %>

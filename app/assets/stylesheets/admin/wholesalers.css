@@ -11,7 +11,7 @@ input.required, select.required {
 
 .leftie, .rightie {
   display: block;
-  width: 49%;  
+  width: 49%;
 }
 .leftie {
   float: left;

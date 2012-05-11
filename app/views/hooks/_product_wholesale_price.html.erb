@@ -1,6 +1,0 @@
-<% if current_user && current_user.has_role?(:wholesaler) %>
-  <% if @product.try(:wholesale_price) && 0 < @product.try(:wholesale_price) %>
-    <dt class="wholesale"><%= t(:wholesale_price) %></dt>
-    <dd class="wholesale"><span class="price wholesale"><%= number_to_currency(@product.wholesale_price) %></span></dd>
-  <% end %>
-<% end %>

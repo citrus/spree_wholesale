@@ -1,0 +1,75 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'admin/wholesalers' %>
+  <%= javascript_include_tag 'wholesaler_address' %>
+  <%= javascript_include_tag '/states' %>
+  <%= javascript_include_tag 'jquery.validate/jquery.validate.min' %>
+<% end %>
+
+<div class="leftie">
+  <fieldset class="wholesaler-details">
+    <legend>Company Information</legend>
+
+    <p>
+      <%= form.label :company %><br/>
+      <%= form.text_field :company, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :buyer_contact %><br/>
+      <%= form.text_field :buyer_contact, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :manager_contact %><br/>
+      <%= form.text_field :manager_contact, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :phone %><br/>
+      <%= form.text_field :phone, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :fax %><br/>
+      <%= form.text_field :fax %>
+    </p>
+    <p>
+      <%= form.label :resale_number %><br/>
+      <%= form.text_field :resale_number %>
+    </p>
+    <p>
+      <%= form.label :taxid %><br/>
+      <%= form.text_field :taxid, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :web_address %><br/>
+      <%= form.text_field :web_address %>
+    </p>
+    <p>
+      <%= form.label :terms %><br/>
+      <%= form.select :terms, Spree::Wholesaler.term_options, :class => 'required' %><span class="req">*</span>
+    </p>
+    <p>
+      <%= form.label :notes %><br/>
+      <%= form.text_area :notes %>
+    </p>
+  </fieldset>
+
+  <fieldset class="user-details">
+    <legend>User Details:</legend>
+    <% if @wholesaler.new_record? %>
+      <%= form.fields_for :user do |uf| %>
+        <%= render 'spree/shared/user_form', :f => uf %>
+      <% end %>
+    <% else %>
+      <p>
+        <b>User Id:</b>
+        <%= link_to @wholesaler.user.id, admin_user_path(@wholesaler.user) %>
+        <br/>
+        <%= link_to "view user", admin_user_path(@wholesaler.user) %> /
+        <%= link_to "edit user", edit_admin_user_path(@wholesaler.user) %> /
+        <%= render "user_options" %>
+      </p>
+    <% end %>
+  </fieldset>
+</div>
+
+<div class="rightie">
+  <%= render "spree/shared/address_form", :form => form %>
+</div>

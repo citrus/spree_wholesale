@@ -21,14 +21,14 @@ gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale', :branc
 
 # spree 0.50.x
 gem 'spree_wholesale', :git => 'git://github.com/citrus/spree_wholesale', :branch => '0.50.x'
-```    
+```
 
 
 Otherwise just use the last stable release:
-   
-```ruby 
+
+```ruby
 gem 'spree_wholesale', '0.40.2.2'
-```    
+```
 
 
 Then install the necessary migrations, db:migrate, and create the wholesale role:
@@ -41,9 +41,9 @@ rake db:migrate spree_wholesale:create_role
 # legacy spree
 rake spree_wholesale:install
 rake db:migrate spree_wholesale:create_role
-```      
+```
 
-      
+
 If you'd like to generate sample wholesale prices based on a 66% discount:
 
 ```bash
@@ -57,7 +57,7 @@ Testing
 
 If you'd like to run tests:
 
-```bash    
+```bash
 git clone git://github.com/citrus/spree_wholesale.git
 cd spree_wholesale
 bundle install
@@ -80,15 +80,15 @@ bundle install
 bundle exec dummier
 cd test/dummy
 rails s
-```  
-  
+```
+
 
 ------------------------------------------------------------------------------
 To Do
 ------------------------------------------------------------------------------
 
 * Write more/better tests
-* Finish i18n implementation 
+* Finish i18n implementation
 
 
 ------------------------------------------------------------------------------

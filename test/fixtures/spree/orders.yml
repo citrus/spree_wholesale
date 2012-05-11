@@ -1,0 +1,66 @@
+incomplete:
+  id: 1069267039
+  user_id: 1057526560
+  number: R107687410
+  item_total: 29.01
+  total: 29.01
+  created_at: 2011-01-12 03:07:39
+  updated_at: 2011-01-12 03:07:39
+  state: cart
+  adjustment_total: 0.00
+  credit_total: 0.00
+  completed_at: NULL
+  bill_address_id: NULL
+  ship_address_id: NULL
+  payment_total: 0.00
+  shipping_method_id: NULL
+  shipment_state: NULL
+  payment_state: 'balance_due'
+  email: 'spree@example.com'
+  special_instructions: NULL
+  wholesale: 0
+
+complete:
+  id: 1069267040
+  user_id: 1057526560
+  number: R107687411
+  item_total: 29.01
+  total: 29.01
+  created_at: 2011-01-12 03:07:39
+  updated_at: 2011-01-12 03:07:39
+  state: cart
+  adjustment_total: 0.00
+  credit_total: 0.00
+  completed_at: NULL
+  bill_address_id: NULL
+  ship_address_id: NULL
+  payment_total: 0.00
+  shipping_method_id: NULL
+  shipment_state: NULL
+  payment_state: 'balance_due'
+  email: 'spree@example.com'
+  special_instructions: NULL
+  wholesale: 0
+
+wholesale:
+  id: 1069267041
+  user_id: 1
+  number: R107687412
+  item_total: 18.00
+  total: 18.00
+  created_at: 2011-01-12 03:07:39
+  updated_at: 2011-01-12 03:07:39
+  state: complete
+  adjustment_total: 0.00
+  credit_total: 0.00
+  completed_at: 2011-01-12 03:10:48
+  bill_address_id: NULL
+  ship_address_id: NULL
+  payment_total: 0.00
+  shipping_method_id: NULL
+  shipment_state: NULL
+  payment_state: 'balance_due'
+  email: 'spree@example.com'
+  special_instructions: NULL
+  wholesale: 1
+
