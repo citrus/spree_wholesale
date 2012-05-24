@@ -50,29 +50,29 @@
 <div class="box">
   <h3><%= t('search') %></h3>
 
-  <% @wholesaler = Spree::Wholesaler.ransack %>
+  <% @wholesaler = Spree::Wholesaler.search %>
 
-  <%= form_for [:admin, @wholesaler] do |f| %>
+  <%= search_form_for [:admin, @wholesaler] do |f| %>
     <%- locals = {:f => f} %>
     <p>
       <%= t(".company") %><br />
-      <%= f.text_field :company_contains, :size=>18 %>
+      <%= f.text_field :company_cont, :size=>18 %>
     </p>
     <p>
       <%= t(".buyer_contact") %><br />
-      <%= f.text_field :buyer_contact_contains, :size=>18 %>
+      <%= f.text_field :buyer_contact_cont, :size=>18 %>
     </p>
     <p>
       <%= t(".manager_contact") %><br />
-      <%= f.text_field :manager_contact_contains, :size=>18 %>
+      <%= f.text_field :manager_contact_cont, :size=>18 %>
     </p>
     <p>
       <%= t("phone") %><br />
-      <%= f.text_field :phone_contains, :size=>18 %>
+      <%= f.text_field :phone_cont, :size=>18 %>
     </p>
     <p>
       <%= t(".notes") %><br />
-      <%= f.text_field :notes_contains, :size=>18 %>
+      <%= f.text_field :notes_cont, :size=>18 %>
     </p>
 
     <p><%= button t("search") %></p>

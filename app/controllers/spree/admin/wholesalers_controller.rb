@@ -68,7 +68,7 @@ class Spree::Admin::WholesalersController < Spree::Admin::ResourceController
 
   def approval_setup
     @wholesaler = Spree::Wholesaler.find(params[:id])
-    @role = Role.find_or_create_by_name("wholesaler")
+    @role = Spree::Role.find_or_create_by_name("wholesaler")
   end
 
   def collection
@@ -76,7 +76,7 @@ class Spree::Admin::WholesalersController < Spree::Admin::ResourceController
 
     params[:search] ||= {}
     params[:search][:meta_sort] ||= "company.asc"
-    @search = Spree::Wholesaler.ransack(params[:search])
+    @search = Spree::Wholesaler.ransack(params[:q])
     @collection = @search.result.page(params[:page]).per(Spree::Config[:admin_products_per_page])
   end
 end

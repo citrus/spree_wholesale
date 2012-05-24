@@ -28,7 +28,7 @@ class Spree::WholesalersTest < ActiveSupport::IntegrationCase
   should "get new wholesaler" do
     visit spree.new_wholesaler_path
     assert page.has_content?(I18n.t('wholesale_signup'))
-    within "#new_spree_wholesaler" do
+    within "#new_wholesaler" do
       @labels.each do |f|
         assert page.has_field?(f)
       end

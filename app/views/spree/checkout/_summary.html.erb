@@ -1,6 +1,6 @@
 <h3><%= t(:order_summary) %></h3>
 <% if order.is_wholesale? %>
-  <%= render 'hooks/wholesale_customer_id' %>
+  <%= render 'spree/hooks/wholesale_customer_id' %>
 <% end %>
 
 <table>

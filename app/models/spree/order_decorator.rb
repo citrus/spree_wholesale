@@ -48,16 +48,16 @@ Spree::Order.class_eval do
 
     # populate line_items attributes for additional_fields entries
     # that have populate => [:line_item]
-    Spree::Variant.additional_fields.select{|f| !f[:populate].nil? && f[:populate].include?(:line_item) }.each do |field|
-      value = ""
+    # Spree::Variant.additional_fields.select{|f| !f[:populate].nil? && f[:populate].include?(:line_item) }.each do |field|
+    #   value = ""
 
-      if field[:only].nil? || field[:only].include?(:variant)
-        value = variant.send(field[:name].gsub(" ", "_").downcase)
-      elsif field[:only].include?(:product)
-        value = variant.product.send(field[:name].gsub(" ", "_").downcase)
-      end
-      current_item.update_attribute(field[:name].gsub(" ", "_").downcase, value)
-    end
+    #   if field[:only].nil? || field[:only].include?(:variant)
+    #     value = variant.send(field[:name].gsub(" ", "_").downcase)
+    #   elsif field[:only].include?(:product)
+    #     value = variant.product.send(field[:name].gsub(" ", "_").downcase)
+    #   end
+    #   current_item.update_attribute(field[:name].gsub(" ", "_").downcase, value)
+    # end
 
     current_item
   end

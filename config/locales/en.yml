@@ -19,6 +19,9 @@ en:
   wholesale_update: "Wholesale Update"
   wholesale_price: "Wholesale Price"
 
+  actions:
+    cancel: "Cancel"
+
   shared:
     address_form:
       use_for_shipping: "Use billing address for shipping"

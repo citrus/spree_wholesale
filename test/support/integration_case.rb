@@ -11,7 +11,6 @@ class ActiveSupport::IntegrationCase < ActiveSupport::TestCase
   alias :testmail_admin_mail_method_path :testmail_admin_mail_method_url
 
 
-
   self.use_transactional_fixtures = false
 
   # Checks for missing translations after each test

@@ -25,7 +25,7 @@ class Spree::Admin::WholesalersTest < ActiveSupport::IntegrationCase
     visit spree.new_admin_wholesaler_path
     # assert has_content?("New Wholesaler")
     assert page.has_content?('New Wholesaler')
-    within "#new_spree_wholesaler" do
+    within "#new_wholesaler" do
       @labels.each do |f|
         assert has_field?(f)
       end

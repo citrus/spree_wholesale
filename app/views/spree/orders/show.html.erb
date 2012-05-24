@@ -1,7 +1,7 @@
 <div id="order">
   <%= link_to t('back_to_store'), products_path %>
 
-  <%= render 'hooks/wholesale_customer_id' %>
+  <%= render 'spree/hooks/wholesale_customer_id' %>
 
   <% if params.has_key? :checkout_complete %>
   	<br/><br/>
