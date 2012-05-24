@@ -50,7 +50,7 @@
 <div class="box">
   <h3><%= t('search') %></h3>
 
-  <% @wholesaler = Spree::Wholesaler.metasearch %>
+  <% @wholesaler = Spree::Wholesaler.ransack %>
 
   <%= form_for [:admin, @wholesaler] do |f| %>
     <%- locals = {:f => f} %>

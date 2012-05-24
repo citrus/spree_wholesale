@@ -76,7 +76,7 @@ class Spree::Admin::WholesalersController < Spree::Admin::ResourceController
 
     params[:search] ||= {}
     params[:search][:meta_sort] ||= "company.asc"
-    @search = Spree::Wholesaler.metasearch(params[:search])
-    @collection = @search.page(params[:page]).per(Spree::Config[:admin_products_per_page])
+    @search = Spree::Wholesaler.ransack(params[:search])
+    @collection = @search.result.page(params[:page]).per(Spree::Config[:admin_products_per_page])
   end
 end
