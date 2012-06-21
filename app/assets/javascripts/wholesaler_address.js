@@ -2,7 +2,7 @@
   $(document).ready(function(){
     if($('.wholesaler-form, .new_wholesaler').is('*')){
 
-      // $('.wholesaler-form, .new_wholesaler').validate();
+      // $('.wholesaler-form, .new_spree_wholesaler').validate();
 
       var get_states = function(region){
         country = $('p#' + region + 'country' + ' span#' + region + 'country :only-child').val();
